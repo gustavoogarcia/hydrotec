@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.js": "/hydrotec/static/js/main.747b257c.chunk.js",
+    "main.js.map": "/hydrotec/static/js/main.747b257c.chunk.js.map",
+    "runtime-main.js": "/hydrotec/static/js/runtime-main.b4316bba.js",
+    "runtime-main.js.map": "/hydrotec/static/js/runtime-main.b4316bba.js.map",
+    "static/js/2.be88cada.chunk.js": "/hydrotec/static/js/2.be88cada.chunk.js",
+    "static/js/2.be88cada.chunk.js.map": "/hydrotec/static/js/2.be88cada.chunk.js.map",
+    "static/js/3.1c3c7c81.chunk.js": "/hydrotec/static/js/3.1c3c7c81.chunk.js",
+    "static/js/3.1c3c7c81.chunk.js.map": "/hydrotec/static/js/3.1c3c7c81.chunk.js.map",
+    "index.html": "/hydrotec/index.html",
+    "static/js/2.be88cada.chunk.js.LICENSE.txt": "/hydrotec/static/js/2.be88cada.chunk.js.LICENSE.txt",
+    "static/media/ApercuRegular.83b693d3.otf": "/hydrotec/static/media/ApercuRegular.83b693d3.otf",
+    "static/media/activities.1c9d8ba5.svg": "/hydrotec/static/media/activities.1c9d8ba5.svg",
+    "static/media/harvest.a9f758d0.svg": "/hydrotec/static/media/harvest.a9f758d0.svg",
+    "static/media/meter.2ac9666a.svg": "/hydrotec/static/media/meter.2ac9666a.svg",
+    "static/media/occupation.9276fcb6.svg": "/hydrotec/static/media/occupation.9276fcb6.svg",
+    "static/media/partlyCloud.66b938b2.svg": "/hydrotec/static/media/partlyCloud.66b938b2.svg",
+    "static/media/world.99e00c5c.svg": "/hydrotec/static/media/world.99e00c5c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b4316bba.js",
+    "static/js/2.be88cada.chunk.js",
+    "static/js/main.747b257c.chunk.js"
+  ]
+}
