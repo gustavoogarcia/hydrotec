@@ -7,7 +7,7 @@ const OccupationDetails = () => {
 
   const tableItems = [
     { label: 'Hortaliça', name: 'label' },
-    { label: 'Ocupação', name: 'occupationUnits' },
+    { label: 'Ocupação', name: 'plantedUnits' },
     { label: 'Ocupação berçario', name: 'occupationNurseryUnits' },
     { label: 'Ocupação Final', name: 'occupationPercentage' },
   ]
@@ -21,10 +21,10 @@ const OccupationDetails = () => {
     link: '/indicadores/ocupacao',
     path: ['ocupação das estuvas'],
     data: [
-      { label: 'Alface crespa', occupationUnits: 17, occupationNurseryUnits: 17, plantedPercentage: 20, occupationPercentage: 25 },
-      { label: 'Alface americana', occupationUnits: 13, occupationNurseryUnits: 17, plantedPercentage: 32, occupationPercentage: 17 },
-      { label: 'Cebolinha', occupationUnits: 24, occupationNurseryUnits: 17, plantedPercentage: 37, occupationPercentage: 42 },
-      { label: 'Rúcula', occupationUnits: 37, occupationNurseryUnits: 17, plantedPercentage: 22, occupationPercentage: 76 },
+      { label: 'Alface crespa', plantedUnits: 17, occupationNurseryUnits: 17, plantedPercentage: 20, occupationPercentage: 25 },
+      { label: 'Alface americana', plantedUnits: 13, occupationNurseryUnits: 17, plantedPercentage: 32, occupationPercentage: 17 },
+      { label: 'Cebolinha', plantedUnits: 24, occupationNurseryUnits: 17, plantedPercentage: 37, occupationPercentage: 42 },
+      { label: 'Rúcula', plantedUnits: 37, occupationNurseryUnits: 17, plantedPercentage: 22, occupationPercentage: 76 },
     ]
   }
   
