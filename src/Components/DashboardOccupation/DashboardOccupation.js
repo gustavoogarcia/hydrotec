@@ -28,7 +28,7 @@ const DashboardOccupation = () => {
           </S.DashboardOccupationInfo>
         ))}
       </S.DashboardOccupationList>
-      <Button label=". . . ver mais" onClick={() => history.push('./indicadores/ocupacao')} />
+      <Button label=". . . ver mais" onClick={() => history.push('/indicadores/ocupacao')} />
       <DashboardLosts />
     </S.DashboardOccupation>
   );

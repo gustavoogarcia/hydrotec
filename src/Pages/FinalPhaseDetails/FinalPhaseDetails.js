@@ -5,12 +5,20 @@ import * as S from './FinalPhaseDetails.style';
 
 const FinalPhaseDetails = () => {
 
+  const tableItems = [
+    { label: 'Hortaliça', name: 'label' },
+    { label: 'Plantado', name: 'plantedUnits' },
+    { label: 'Planejado', name: 'plannedUnits' },
+    { label: 'Ocupação', name: 'occupationPercentage' },
+  ]
+
   const finalPhaseInfo = { 
+    tableItems,
     label: "fase final",
     units: 485,
     color: "#8bc53f",
     icon: FinalPhaseIcon,
-    link: '/indicadores/bercario',
+    link: '/indicadores/fase-final',
     path: ['berçario'],
     data: [
       { label: 'Alface crespa', plantedUnits: 17, plantedPercentage: 20, plannedUnits: 36, plannedPercentage: 100, occupationPercentage: 25 },
