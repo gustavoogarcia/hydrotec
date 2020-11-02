@@ -98,19 +98,13 @@ export const GreeneryChartItemBarValue = styled.div`
 
 export const GreeneryChartNumbers = styled.div`
   display: grid;
-  margin: 0 -14px 0 7px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  margin-bottom: 20px;
-
-  @media screen {
-    @media (min-width: ${({ theme: { screen: { screenXS } }}) => screenXS}) {
-      margin: 0 0 0 7px;
-    }
-  }
+  margin: 0 -5px 20px -5px;
 `
 
 export const GreeneryChartNumber = styled.div`
   font-size: 10px;
+  text-align: center;
   color: ${({ theme: { color: { mediumGray } } }) => mediumGray };
 `
 
