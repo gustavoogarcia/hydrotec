@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/hydrotec/static/js/main.bb67898a.chunk.js",
-    "main.js.map": "/hydrotec/static/js/main.bb67898a.chunk.js.map",
+    "main.js": "/hydrotec/static/js/main.b907ff93.chunk.js",
+    "main.js.map": "/hydrotec/static/js/main.b907ff93.chunk.js.map",
     "runtime-main.js": "/hydrotec/static/js/runtime-main.efc7ac81.js",
     "runtime-main.js.map": "/hydrotec/static/js/runtime-main.efc7ac81.js.map",
     "static/js/2.36b2f696.chunk.js": "/hydrotec/static/js/2.36b2f696.chunk.js",
@@ -21,6 +21,6 @@
   "entrypoints": [
     "static/js/runtime-main.efc7ac81.js",
     "static/js/2.36b2f696.chunk.js",
-    "static/js/main.bb67898a.chunk.js"
+    "static/js/main.b907ff93.chunk.js"
   ]
 }
