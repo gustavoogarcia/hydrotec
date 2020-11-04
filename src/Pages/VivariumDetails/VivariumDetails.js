@@ -15,6 +15,7 @@ const VivariumDetails = () => {
   const vivariumInfo = { 
     tableItems,
     label: "viveiro",
+    shortLabel: "Hortaliça",
     units: 485,
     color: "#13739e",
     icon: VivariumIcon,

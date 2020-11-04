@@ -3,9 +3,9 @@ import Spinner from '../Spinner';
 import { StyledButtonAction } from './Button.style';
 
 export const ButtonAction = forwardRef((props, ref) => {
-  const { children, icon, iconRight, loading, disabled, label, ...restProps } = props;
+  const { children, icon, rightIcon: RightIcon, loading, disabled, label, icon: Icon, ...restProps } = props;
   const { variation } = restProps;
-
+  
   return (
     <StyledButtonAction {...restProps} className={variation} ref={ref} disabled={disabled || loading}>
       {children
@@ -13,11 +13,13 @@ export const ButtonAction = forwardRef((props, ref) => {
         : <>
           {loading
             ? <Spinner color="#fff" />
-            : <>
-              {props.icon && <props.icon/>}
-              {label && label}
-              {props.iconRight && <props.iconRight/>}
-            </>
+            : (
+              <>
+                {Icon && <Icon/>}
+                {label && label}
+                {props.rightIcon && <RightIcon/>}
+              </>
+            )
           }
         </>
       }

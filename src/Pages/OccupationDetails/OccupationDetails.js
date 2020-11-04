@@ -6,7 +6,7 @@ import * as S from './OccupationDetails.style';
 const OccupationDetails = () => {
 
   const tableItems = [
-    { label: 'Hortaliça', name: 'label' },
+    { label: 'Ocupação', name: 'label' },
     { label: 'Ocupação', name: 'plantedUnits' },
     { label: 'Ocupação berçario', name: 'occupationNurseryUnits' },
     { label: 'Ocupação Final', name: 'occupationPercentage' },
@@ -15,6 +15,7 @@ const OccupationDetails = () => {
   const vivariumInfo = { 
     tableItems,
     label: "ocupação das estufas",
+    shortLabel: "Ocupação",
     units: 485,
     color: "#ff6b57",
     icon: OccupationIcon,

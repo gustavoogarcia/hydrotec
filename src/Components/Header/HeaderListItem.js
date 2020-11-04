@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import * as S from './Header.style';
 
-export default function HeaderListItem ({ label, icon: Icon, color, childs }) {
+export default function HeaderListItem ({ label, icon: Icon, color, path, childs }) {
   const [itemIsOpen, setItemIsOpen] = useState(false);
+  const history = useHistory();
 
   return (
-    <S.HeaderNavListItem>
+    <S.HeaderNavListItem onClick={() => path && history.push(`${path}`)}>
       <S.HeaderNavListItemButton isOpen={itemIsOpen} childs={childs} color={color} onClick={() => setItemIsOpen(!itemIsOpen)}>
         { Icon && <Icon /> }
         {label}

@@ -1,280 +1,77 @@
 import styled, { css } from 'styled-components';
 import { NavLink, Link } from 'react-router-dom';
+import { lighten, darken } from 'polished';
 
 const primary = css`
-  padding: ${({theme: {spacing: {spacingSquishXS}}}) => spacingSquishXS};
-  box-shadow: ${({theme: {boxShadow: {boxShadowMD}}}) => boxShadowMD};
-  border-radius: ${({theme: {borderRadius: {borderRadiusPill}}}) => borderRadiusPill};
-  background: ${({ theme: { color: { brandGradient }}}) => brandGradient };
-  font-size: ${({theme: {fontSize: {fontSizeXXS}}}) => fontSizeXXS};
+  background: ${({ theme: { color: { brand }}}) => brand };
   color: ${({ theme: { color: { white }}}) => white };
 
+  svg {
+    path {
+      stroke: ${({ theme: { color: { white }}}) => white };
+    }
+  }
+
   &:hover {
-    background: ${({theme: {color: {brand}}}) => brand};
-    color: ${({ theme: { color: { white }}}) => white };
+    background: ${({theme: {color: { brand }}}) => darken('.05', brand) };
   }
 
   &:active, &:focus {
-    background: ${({theme: {color: {brandDark}}}) => brandDark};
+    background: ${({theme: {color: { brand }}}) => darken('.1', brand) };
   }
-
-  &:visited {
-    color: ${({theme: {color: {white}}}) => white};
-  }
-
-  &:disabled {
-    opacity: .3;
-    cursor: not-allowed;
-  }
+  
 `
 
 const secondary = css`
-  padding: ${({theme: {spacing: {spacingSquishXS}}}) => spacingSquishXS};
-  box-shadow: ${({theme: {boxShadow: {boxShadowMD}}}) => boxShadowMD};
   background: ${({ theme: { color: { white }}}) => white };
-  border-radius: ${({theme: {borderRadius: {borderRadiusPill}}}) => borderRadiusPill};
-  border: 2px solid ${({ theme: { color: { brand }}}) => brand };
-  font-size: ${({theme: {fontSize: {fontSizeXXS}}}) => fontSizeXXS};
-  color: ${({ theme: { color: { brandDark }}}) => brandDark };
+  color: ${({ theme: { color: { black }}}) => black };
 
   &:hover {
-    background: ${({theme: {color: {brand}}}) => brand};
-    color: ${({ theme: { color: { white }}}) => white };
-    border: 2px solid ${({ theme: { color: { brand }}}) => brand };
+    background: ${({theme: {color: { brand }}}) => lighten('.4', brand) };
   }
 
   &:active, &:focus {
-    background: ${({theme: {color: {brandDark}}}) => brandDark};
-    color: ${({ theme: { color: { white }}}) => white };
-    border: 2px solid ${({ theme: { color: { brandDark }}}) => brandDark };
-  }
-
-  &:visited {
-    color: ${({theme: {color: {brandDark}}}) => brandDark};
-
-    &:hover {
-      color: ${({ theme: { color: { white }}}) => white };
-    }
-
-    &:active, &:focus {
-      color: ${({ theme: { color: { white }}}) => white };
-    }
-  }
-
-  &:disabled {
-    background: ${({theme: {color: {brandLight}}}) => brandLight};
-    border: 2px solid ${({ theme: { color: { brandLight }}}) => brandLight };
-    cursor: not-allowed;
+    background: ${({theme: {color: { brand }}}) => lighten('.2', brand) };
   }
 `
 
 const danger = css`
-  background: ${({ theme: { color: { error }}}) => error };
-  min-height: 52px;
-  width: 100%;
-  padding: ${({theme: {spacing: {spacingSquishXS}}}) => spacingSquishXS};
+  background: ${({ theme: { color: { danger }}}) => danger };
   color: ${({ theme: { color: { white }}}) => white };
 
-  svg {
-    margin: -4px 0;
-  }
-
   &:hover {
-    background: ${({theme: {color: {errorMedium}}}) => errorMedium};
+    background: ${({theme: {color: { danger }}}) => darken('.05', danger) };
   }
 
   &:active, &:focus {
-    background: ${({theme: {color: {errorDark}}}) => errorDark};
+    background: ${({theme: {color: { danger }}}) => darken('.1', danger) };
   }
-`
 
-const transparentBigIcon = css`
-  display: flex;
-    width: 30px;
-    flex-direction: column;
-    align-items: center;
-    font-size: ${({ theme: { fontSize: { fontSizeUS }}}) => fontSizeUS };
-    color: ${({ theme: { color: { black }}}) => black };
-    white-space: nowrap;
-    transition: color .3s ease;
-
-    &:hover {
-      color: ${({ theme: { color: { brandComplementar }}}) => brandComplementar };
-
-      svg {
-        path {
-          transition: stroke .3s ease;
-          stroke: ${({ theme: { color: { brandComplementar }}}) => brandComplementar };
-        }
-      }
-    }
-
-    &:active, &:focus {
-      color: ${({ theme: { color: { brandComplementarDark }}}) => brandComplementarDark };
-
-      svg {
-        path {
-          transition: stroke .3s ease;
-          stroke: ${({ theme: { color: { brandComplementarDark }}}) => brandComplementarDark };
-        }
-      }
-
-      &:hover {
-        color: ${({ theme: { color: { brandComplementar }}}) => brandComplementar };
-
-        svg {
-          path {
-            transition: stroke .3s ease;
-            stroke: ${({ theme: { color: { brandComplementar }}}) => brandComplementar };
-          }
-        }
-      }
-    }
-
-    &:disabled {
-      opacity: .3;
-      cursor: not-allowed;
-
-      &:hover {
-        color: ${({ theme: { color: { black }}}) => black };
-
-      svg {
-        path {
-          stroke: ${({ theme: { color: { black }}}) => black };
-        }
-      }
+  svg {
+    path {
+      stroke: ${({ theme: { color: { white }}}) => white };
     }
   }
 `
 
-const whiteBigIcon = css`
-  display: flex;
-    width: 30px;
-    flex-direction: column;
-    align-items: center;
-    font-size: ${({ theme: { fontSize: { fontSizeUS }}}) => fontSizeUS };
-    color: ${({ theme: { color: { white }}}) => white };
-    white-space: nowrap;
-    transition: color .3s ease;
-
-    &:hover {
-      color: ${({ theme: { color: { brandComplementar }}}) => brandComplementar };
-
-      svg {
-        path {
-          transition: stroke .3s ease;
-          stroke: ${({ theme: { color: { brandComplementar }}}) => brandComplementar };
-        }
-      }
-    }
-
-    &:active, &:focus {
-      color: ${({ theme: { color: { brandComplementarDark }}}) => brandComplementarDark };
-
-      svg {
-        path {
-          transition: stroke .3s ease;
-          stroke: ${({ theme: { color: { brandComplementarDark }}}) => brandComplementarDark };
-        }
-      }
-
-      &:hover {
-        color: ${({ theme: { color: { brandComplementar }}}) => brandComplementar };
-
-        svg {
-          path {
-            transition: stroke .3s ease;
-            stroke: ${({ theme: { color: { brandComplementar }}}) => brandComplementar };
-          }
-        }
-      }
-    }
-
-    &:disabled {
-      opacity: .3;
-      cursor: not-allowed;
-
-      &:hover {
-        color: ${({ theme: { color: { black }}}) => black };
-
-      svg {
-        path {
-          stroke: ${({ theme: { color: { black }}}) => black };
-        }
-      }
-    }
-  }
-`
-
-const secondaryBigIcon = css`
-  display: flex;
-  min-width: 30px;
-  flex-direction: column;
-  align-items: center;
-  font-size: ${({ theme: { fontSize: { fontSizeUS }}}) => fontSizeUS };
+const warning = css`
+  background: ${({ theme: { color: { warning }}}) => warning };
   color: ${({ theme: { color: { black }}}) => black };
-  white-space: nowrap;
-  border: 2px solid ${({ theme: { color: { brand }}}) => brand};
-  border-radius: 50%;
-  min-width: 54px;
-  min-height: 54px;
-  padding-top: 5px;
-  transition: color .3s ease, background .3s ease;
-
-  svg {
-      path {
-        transition: stroke .3s ease;
-      }
-    }
 
   &:hover {
-    background-color: ${({ theme: { color: { brand }}}) => brand };
-    color: ${({ theme: { color: { white }}}) => white };
-
-    svg {
-      path {
-        stroke: ${({ theme: { color: { white }}}) => white };
-      }
-    }
+    background: ${({theme: {color: { warning }}}) => darken('.05', warning) };
   }
 
   &:active, &:focus {
-    background-color: ${({ theme: { color: { brandDark }}}) => brandDark };
-    color: ${({ theme: { color: { white }}}) => white };
-    border-color: ${({ theme: { color: { brandDark }}}) => brandDark};
-
-    svg {
-      path {
-        stroke: ${({ theme: { color: { white }}}) => white };
-      }
-    }
-
-    &:hover {
-      color: ${({ theme: { color: { white }}}) => white };
-
-      svg {
-        path {
-          transition: stroke .3s ease;
-          stroke: ${({ theme: { color: { white }}}) => white };
-        }
-      }
-    }
+    background: ${({theme: {color: { warning }}}) => darken('.1', warning) };
   }
+`
 
-  &:disabled {
-    opacity: .3;
-    cursor: not-allowed;
-
-    &:hover {
-      color: ${({ theme: { color: { black }}}) => black };
-
-    svg {
-      path {
-        stroke: ${({ theme: { color: { black }}}) => black };
-      }
-    }
-  }
-}
+const bigIcon = css`
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
 `
 
 const button = css`
@@ -282,6 +79,22 @@ const button = css`
   text-transform: uppercase;
   text-align: center;
   font-weight: ${({theme: {fontWeight: {fontWeightBold}}}) => fontWeightBold};
+  padding: 8px 32px;
+  border-radius: 100px;
+  font-size: 12px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    margin: -10px 0;
+    height: 20px;
+    
+    path {
+      stroke: ${({ theme: { color: { black }}}) => black };
+    }
+  }
 
   &.primary {
     ${primary}
@@ -295,107 +108,20 @@ const button = css`
     ${danger}
   }
 
-  &.secondaryBigIcon {
-    ${secondaryBigIcon}
+  &.warning {
+    ${warning}
+  }
+  
+  &.bigIcon {
+    ${bigIcon}
   }
 
-  &.whiteBigIcon {
-    ${whiteBigIcon}
-  }
-
-  &.transparentBigIcon {
-    ${transparentBigIcon}
+  &:disabled {
+    background: ${({theme: {color: {brandLight}}}) => brandLight};
+    cursor: not-allowed;
   }
 `
-// export const StyledButtonBigIcon = styled.button`
-//   flex-direction: column;
-//   flex-direction: center;
-//   align-items: center;
-//   text-transform: uppercase;
-//   font-weight: 700;
-//   font-size: 8px;
-//   color: ${({ theme: { color: { white }}}) => white };
-//   white-space: nowrap;
-//   transition: color .2s ease;
-
-//   &:hover {
-//     color: ${({ theme: { color: { brandComplementar }}}) => brandComplementar };
-
-//     svg {
-//       path {
-//         transition: stroke .3s ease;
-//         stroke: ${({ theme: { color: { brandComplementar }}}) => brandComplementar };
-//       }
-//     }
-//   }
-
-//   ${({variation, theme: { color: { brand, brandDark, black, white }}}) => {
-
-//     if(variation === 'secondary') return `
-//       background: transparent;
-//       border: 2px solid ${brand};
-//       color: ${black};
-//       border-radius: 50%;
-//       min-width: 54px;
-//       min-height: 54px;
-//       padding-top: 5px;
-//       transition: background .3s ease;
-
-//       &:hover {
-//         background: ${brand};
-//         color: ${white};
-
-//         svg {
-//           path {
-//             stroke: ${white};
-//           }
-//         }
-//       }
-
-//       &:active {
-//         background: ${brandDark};
-//         border-color: ${brandDark};
-//         color: ${white};
-
-//         svg {
-//           path {
-//             stroke: ${white};
-//           }
-//         }
-//       }
-//     `;
-//   }}
-// `
-
 export const StyledButtonNavLink = styled(NavLink)`
-  display: flex;
-  flex-direction: center;
-  align-items: center;
-  font-weight: 700;
-  font-size: ${({ theme: { spacing: { fontSizeXS }}}) => fontSizeXS };
-  color: ${({ theme: { color: { white }}}) => white };
-  white-space: nowrap;
-  transition: color .2s ease;
-
-  &:hover {
-    color: ${({ theme: { color: { brandComplementar }}}) => brandComplementar };
-
-    svg {
-
-      path {
-        transition: stroke .3s ease;
-        stroke: ${({ theme: { color: { brandComplementar }}}) => brandComplementar };
-      }
-    }
-  }
-
-  svg {
-    transform: translateY(-3px);
-    margin-right: ${({ theme: { spacing: { spacingSM }}}) => spacingSM };
-    min-width: 30px;
-    height: 30px;
-    width: 30px;
-  }
 `
 
 export const StyledButtonAction = styled.button`

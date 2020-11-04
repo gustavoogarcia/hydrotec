@@ -15,6 +15,7 @@ const MaternityDetails = () => {
   const maternityInfo = { 
     tableItems,
     label: "maternidade",
+    shortLabel: "Hortaliça",
     units: 485,
     color: "#16c4c4",
     icon: MaternityIcon,

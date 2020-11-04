@@ -15,6 +15,7 @@ const FinalPhaseDetails = () => {
   const finalPhaseInfo = { 
     tableItems,
     label: "fase final",
+    shortLabel: "Hortaliça",
     units: 485,
     color: "#8bc53f",
     icon: FinalPhaseIcon,

@@ -15,6 +15,7 @@ const NurseryDetails = () => {
   const maternityInfo = { 
     tableItems,
     label: "berçario",
+    shortLabel: "Hortaliça",
     units: 485,
     color: "#1e7c4d",
     icon: NurseryIcon,

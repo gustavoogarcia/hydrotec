@@ -5,7 +5,7 @@ import UnitsTable from '../../Components/UnitsTable';
 import * as S from './IndicatorsDetails.style';
 
 const IndicatorsDetails = (indicatorsProps) => {
-  const { color, label, data, icon: Icon, tableItems } = indicatorsProps
+  const { color, label, shortLabel, data, icon: Icon, tableItems } = indicatorsProps
 
   return (
     <S.IndicatorsDetails>
@@ -15,10 +15,11 @@ const IndicatorsDetails = (indicatorsProps) => {
         <hr />
         <Icon />
       </S.IndicatorsDetailsTitle>
-      <S.IndicatorsDetailsCaption color={color}>
-        {`Percentual de hortaliças na ${label}`}
-      </S.IndicatorsDetailsCaption>
-      <GreeneryChart data={data} color={color} />
+      { data[0].plannedUnits 
+        ? <S.IndicatorsDetailsCaption color={color}>{`Percentual de hortaliças na ${label}`}</S.IndicatorsDetailsCaption>
+        : <S.IndicatorsDetailsCaption color={color}>{`Percentual de ${label}`}</S.IndicatorsDetailsCaption>
+      }
+      <GreeneryChart data={data} color={color} shortLabel={shortLabel} />
       <UnitsTable data={data} color={color} tableItems={tableItems} />
     </S.IndicatorsDetails>
   );

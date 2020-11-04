@@ -22,8 +22,8 @@ export const hydrotecTheme = {
   },
   screen: {
     screenXS: '475px',
-    screenSM: '768px',
-    screenMD: '1080px',
+    screenSM: '820px',
+    screenMD: '1180px',
     screenLG: '1440px',
     screenXL: '2560px'
   },
