@@ -18,7 +18,7 @@ export const plantingLotsSearchFieldsState = () => ({
   grennery: { value: '' },
   stage: { value: '' },
   sortBy: { value: { label: 'Data ↓', value: 'dateDsc' } },
-  limit: { value: { label: '10', value: 10 } },
+  limit: { value: { label: '20', value: 20 } },
 });
 
 export const plantingLotsSearchFields = ({ fields }) => ({

@@ -27,9 +27,24 @@ export default function PlantingLots () {
       { id: 3124, date: new Date(), greenHouse: 'Estufa Amarela', grennery: 'Erva doce', harvestForecast: new Date() },
       { id: 4212, date: new Date(), greenHouse: 'Estufa Amarela', grennery: 'Salsinha', harvestForecast: new Date() },
       { id: 5213, date: new Date(), greenHouse: 'Estufa Amarela', grennery: 'Acelga', harvestForecast: new Date() },
+      { id: 1234, date: new Date(), greenHouse: 'Estufa Azul', grennery: 'Alface', harvestForecast: new Date() },
+      { id: 2134, date: new Date(), greenHouse: 'Estufa Azul', grennery: 'Cebolinha', harvestForecast: new Date() },
+      { id: 3124, date: new Date(), greenHouse: 'Estufa Amarela', grennery: 'Erva doce', harvestForecast: new Date() },
+      { id: 4212, date: new Date(), greenHouse: 'Estufa Amarela', grennery: 'Salsinha', harvestForecast: new Date() },
+      { id: 5213, date: new Date(), greenHouse: 'Estufa Amarela', grennery: 'Acelga', harvestForecast: new Date() },
+      { id: 1234, date: new Date(), greenHouse: 'Estufa Azul', grennery: 'Alface', harvestForecast: new Date() },
+      { id: 2134, date: new Date(), greenHouse: 'Estufa Azul', grennery: 'Cebolinha', harvestForecast: new Date() },
+      { id: 3124, date: new Date(), greenHouse: 'Estufa Amarela', grennery: 'Erva doce', harvestForecast: new Date() },
+      { id: 4212, date: new Date(), greenHouse: 'Estufa Amarela', grennery: 'Salsinha', harvestForecast: new Date() },
+      { id: 5213, date: new Date(), greenHouse: 'Estufa Amarela', grennery: 'Acelga', harvestForecast: new Date() },
+      { id: 1234, date: new Date(), greenHouse: 'Estufa Azul', grennery: 'Alface', harvestForecast: new Date() },
+      { id: 2134, date: new Date(), greenHouse: 'Estufa Azul', grennery: 'Cebolinha', harvestForecast: new Date() },
+      { id: 3124, date: new Date(), greenHouse: 'Estufa Amarela', grennery: 'Erva doce', harvestForecast: new Date() },
+      { id: 4212, date: new Date(), greenHouse: 'Estufa Amarela', grennery: 'Salsinha', harvestForecast: new Date() },
+      { id: 5213, date: new Date(), greenHouse: 'Estufa Amarela', grennery: 'Acelga', harvestForecast: new Date() },
     ])
-    setTotalPages(1);
-    setTotalCount(5);
+    setTotalPages(5);
+    setTotalCount(73);
   }, [])
 
   return (
