@@ -5,6 +5,7 @@ export const ListPageBar = styled.header`
   background: ${({ theme: { color: { brand } }}) => desaturate('.1',lighten('.4', brand))};
   padding: 10px 20px;
   position: sticky;
+  z-index: 10;
   top: 67px;
   display: flex;
   flex-wrap: wrap;
