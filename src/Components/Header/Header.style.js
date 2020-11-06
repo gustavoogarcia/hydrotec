@@ -286,6 +286,20 @@ export const HeaderNavListItemButton = styled.button`
     }
   `}
 
+  ${({ isActive, color, isDashboard, theme: { color: { white, black }} }) => isActive && `
+    background: ${color};
+    color: ${isDashboard ? black : white};
+
+    >svg {
+      path {
+        fill: ${isDashboard ? black : white};
+      }
+    }
+
+    &:after {
+      border-color: ${white};
+    }
+  `}
 `
 
 export const HeaderNavListItemChilds = styled.li`

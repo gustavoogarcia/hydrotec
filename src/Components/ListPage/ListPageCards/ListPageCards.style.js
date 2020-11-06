@@ -3,8 +3,8 @@ import { lighten } from 'polished';
 
 export const ListPageCards = styled.div`
   padding: 0 20px 20px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 12px;
 
   @media screen {
@@ -77,14 +77,42 @@ export const ListPageCardFieldIDValue = styled.p`
 
 export const ListPageCardFieldIcon = styled.button`
   grid-area: ${({ name }) => name };
+  display: flex;
+  position: relative;
+  justify-self: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+
+  &:hover {
+    &:after {
+      content: "${({ tooltip }) => tooltip}";
+      display: block;
+      position: absolute;
+      font-weight: bold;
+      color: ${({ theme: { color: { white } }}) => white };
+      top: calc(50% - 60px);
+      border-radius: 4px;
+      padding: 5px 8px 6px;
+      background: ${({ theme: { color: { brand } }}) => brand };
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: calc(50% - 49px);
+      height: 20px;
+      width: 20px;
+      background: ${({ theme: { color: { brand } }}) => brand };
+      transform: rotate(45deg);
+    }
+  }
 
   @media screen {
     @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      
     }
   }
 `

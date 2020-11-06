@@ -1,18 +1,15 @@
 import React from 'react';
-import { inputChange } from '../../helpers/fieldFunctions'
-import { StyledTextArea } from './Input.style';
+import { inputChange } from '../../helpers/fieldFunctions';
+import * as S from './Input.style';
 
-export default function InputTextArea({ fields, field, setFields, setInputInFocus, disabled, setDisabled, name, value, type, placeholder,...props}) {
+export default function InputTextArea({ setFields, onChange,...props}) {
 
   return (
-    <StyledTextArea
-      name={name}
-      id={name}
-      placeholder={placeholder}
-      value={value || ''}
-      //onFocus={() => type !== 'checkbox' && setInputInFocus(true)}
-      //onBlur={() => inputChange({field, fields, setFields, disabled, setDisabled})}
-      onChange={({target}) => inputChange({ target, field, fields, setFields, setInputInFocus })}
+    <S.InputTextarea
+      {...props}
+      rows={4}
+      onChange={({ target }) => (onChange ? onChange({ target, setFields }) : inputChange({ target, setFields }))}
+      maskChar=""
     />
   );
 }

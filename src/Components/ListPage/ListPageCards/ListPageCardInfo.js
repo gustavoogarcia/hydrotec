@@ -9,9 +9,12 @@ import * as S from './ListPageCards.style';
 export default function ListPageCard({fieldType, fieldLabel, gridTemplate, ...listPageCardInfoProps }) {
 
   switch (fieldType) {
-    case 'tags':  return <S.ListPageCardFieldIcon name={fieldType}><TagIcon /></S.ListPageCardFieldIcon>
-    case 'history': return <S.ListPageCardFieldIcon name={fieldType}><HistoryIcon /></S.ListPageCardFieldIcon>
-    case 'delete': return <S.ListPageCardFieldIcon name={fieldType}><TrashIcon /></S.ListPageCardFieldIcon>
+    case 'tags':
+      return <S.ListPageCardFieldIcon tooltip="Etiqueta" name={fieldType}><TagIcon /></S.ListPageCardFieldIcon>
+    case 'history':
+      return <S.ListPageCardFieldIcon tooltip="Histórico" name={fieldType}><HistoryIcon /></S.ListPageCardFieldIcon>
+    case 'delete':
+      return <S.ListPageCardFieldIcon tooltip="Excluir" name={fieldType}><TrashIcon /></S.ListPageCardFieldIcon>
     case 'date': 
     case 'harvestForecast':
       return (

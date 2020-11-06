@@ -49,6 +49,7 @@ export const plantingLotsSearchFields = ({ fields }) => ({
     placeholder: 'Escreve ou selecione',
     type: 'select',
     isSearchable: true,
+    
   },
   stage: { 
     ...fields.stage,

@@ -6,10 +6,12 @@ import InputTextArea from './InputTextArea';
 export default function Input(props) {
   const { type } = props;
 
-  const fieldTypes = {
-    "select": <InputSelect {...props} />,
-    "textArea":  <InputTextArea {...props} />,
-  };
-
-  return fieldTypes[type] || <InputText {...props} />
+  switch (type) {
+    case 'select':
+      return <InputSelect {...props} />
+    case 'textArea':
+      return <InputSelect {...props} />
+    default:
+      return <InputText {...props} />
+  }
 };

@@ -7,8 +7,6 @@ export const InputText = styled(Input)`
   background: ${({ theme: { color: { white }}}) => white };
   color: ${({ theme: { color: { mediumGray }}}) => mediumGray };
   width: 100%;
-  min-height: calc(100% + 2px);
-  margin: -1px;
   border-radius: 4px;
   font-size: 12px;
   padding: 4px 8px;
@@ -60,7 +58,14 @@ export const InputSelect = styled(Select)`
   }
 `
 
-export const StyledTextArea = styled.textarea`
-
+export const InputTextarea = styled.textarea`
+  border: none;
+  background: ${({ theme: { color: { cream }}}) => cream };
+  color: ${({ theme: { color: { mediumGray }}}) => mediumGray };
+  width: 100%;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 16px 8px;
+  resize: none;
 `;
 

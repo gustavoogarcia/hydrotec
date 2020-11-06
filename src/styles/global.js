@@ -18,7 +18,7 @@ export const hydrotecTheme = {
     gray: '#333',
     black: '#000',
     brandGradient: 'linear-gradient(75deg, #1e7c4d 5%, #16c4c4 25%, #16c4c4 50%, #8bc53f 90%);',
-    brandComplementarGradient: 'linear-gradient(45deg, #16c4c4 5%, #f7f1ee 50%, #FFD255 95%);',
+    brandComplementarGradient: 'linear-gradient(45deg, #16c4c4 5%, #f7f1ee 50%, #8bc53f 95%);',
   },
   screen: {
     screenXS: '475px',

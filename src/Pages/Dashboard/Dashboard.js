@@ -1,9 +1,9 @@
 import React from 'react';
-import DashboardWeather from '../../Components/DashboardWeather';
-import DashboardIndicators from '../../Components/DashboardIndicators';
-import DashboardNextActivities from '../../Components/DashboardNextActivities';
-import DashboardNextHarvest from '../../Components/DashboardNextHarvest';
-import DashboardOccupation from '../../Components/DashboardOccupation';
+import DashboardWeather from '../../Components/Dashboard/DashboardWeather';
+import DashboardIndicators from '../../Components/Dashboard/DashboardIndicators';
+import DashboardNextActivities from '../../Components/Dashboard/DashboardNextActivities';
+import DashboardNextHarvest from '../../Components/Dashboard/DashboardNextHarvest';
+import DashboardOccupation from '../../Components/Dashboard/DashboardOccupation';
 import * as Styled from './Dashboard.style';
 
 const Dashboard = () => {
