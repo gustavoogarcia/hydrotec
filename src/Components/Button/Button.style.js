@@ -76,7 +76,7 @@ const bigIcon = css`
 
   svg {
     width: 100%;
-    margin: 0 0 10px;
+    margin: 0;
   }
 `
 

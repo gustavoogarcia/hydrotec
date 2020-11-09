@@ -11,13 +11,14 @@ import { useHistory } from 'react-router-dom';
 export default function ItemPage(ItemPageProps) {
   const { id } = useParams();
   const history = useHistory();
-  const { pageLabel: { singular, newLabel, editLabel }  } = ItemPageProps;
+  const { pageLabel: { singular, newLabel, editLabel }, children  } = ItemPageProps;
 
   return (
     <S.ItemPage>
       <ItemPageHeader {...ItemPageProps} />
       <S.ItemPageTitle>{id ? editLabel : newLabel} {singular}</S.ItemPageTitle>
       <ItemPageForm {...ItemPageProps} />
+      {children}
       <S.ItemPageButtons>
         <Button variation="primary" label="Salvar" rightIcon={SaveIcon} />
         <Button variation="danger" label="Voltar" rightIcon={CancelIcon} onClick={() => history.goBack() } />

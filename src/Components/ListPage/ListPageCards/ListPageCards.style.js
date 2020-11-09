@@ -75,6 +75,44 @@ export const ListPageCardFieldIDLabel = styled.p`
 export const ListPageCardFieldIDValue = styled.p`
 `
 
+export const ListPageCardFieldStatus = styled.div`
+  grid-area: ${({ name }) => name };
+  display: flex;
+  align-items: flex-end;
+  background: ${({ ok, theme: { color: { brand, warning }}}) => ok ? brand : warning };
+  border-radius: 12px 12px 0 0;
+  margin: -8px -16px 0px -16px;
+  padding: 8px;
+
+  @media screen {
+    @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {
+      flex-direction: column;
+      align-items: flex-start;
+      margin: -8px 0 -8px -16px;
+      border-radius: 12px 0 0 12px;
+    }
+  }
+`
+
+export const ListPageCardFieldStatusLabel = styled.p`
+  margin-right: 8px;
+  font-size: 12px;
+  color: ${({ theme: { color: { black }}}) => black };
+  font-weight: bold;
+  white-space: nowrap;
+
+  @media screen {
+    @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {
+      margin-bottom: 2px;
+    }
+  }
+`
+
+export const ListPageCardFieldStatusValue = styled.p`
+  top: 1px;
+  position: relative;
+`
+
 export const ListPageCardFieldIcon = styled.button`
   grid-area: ${({ name }) => name };
   display: flex;
@@ -96,6 +134,7 @@ export const ListPageCardFieldIcon = styled.button`
       border-radius: 4px;
       padding: 5px 8px 6px;
       background: ${({ theme: { color: { brand } }}) => brand };
+      z-index: 10;
     }
 
     &:before {

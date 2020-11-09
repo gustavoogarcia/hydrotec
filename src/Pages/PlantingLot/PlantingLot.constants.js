@@ -63,11 +63,13 @@ export const plantingLotFields = ({ fields }) => ({
     isSearchable: true,
   },
   from: { 
+    ...fields.from,
     name: 'from',
     label: 'Data de plantio',
     type: 'date',
   },
   comments: { 
+    ...fields.comments,
     name: 'comments',
     label: 'Observações',
     placeholder: 'Insira sua observação',

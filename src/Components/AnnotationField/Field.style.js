@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Field = styled.div`
   display: flex;
-  border: 2px solid ${({ theme: { color: { white } } }) => white };
+  border: 2px solid ${({ theme: { color: { cream } } }) => cream };
   border-radius: 8px;
   grid-area: ${({ name }) => name };
 `;
@@ -26,9 +26,8 @@ export const FieldLabel = styled.label`
   white-space: nowrap;
   align-items: center;
   display: flex;
+  background: white;
   color: ${({ theme: { color: { brandComplementarDark } } }) => brandComplementarDark };
-  background: ${({ theme: { color: { lightGray } } }) => lightGray };
-  border-radius: 8px 0 0 8px;
 `;
 
 export const FieldTextAreaLabel = styled.label`

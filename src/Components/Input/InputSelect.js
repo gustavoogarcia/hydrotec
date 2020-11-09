@@ -5,16 +5,12 @@ import * as S from './Input.style';
 export default function InputSelect({
   onChange,
   setFields,
-  isMulti,
   options,
   loadOptions,
   loadEmpty,
-  components,
-  isClearable,
   name,
   disabled,
   isCreatable,
-  isSearchable=false,
   filter,
   filterField,
   ...props
@@ -39,20 +35,16 @@ export default function InputSelect({
       key={filter}
       classNamePrefix="inputSelect"
       loadOptions={loadOptionsHandler}
-      isClearable={isClearable}
-      isMulti={isMulti}
-      components={{...components}}
-      isSearchable={isSearchable}
       isDisabled={disabled}
       isValidNewOption={(inputValue) => isCreatable && inputValue.length > 2 }
       formatCreateLabel={(inputValue) => inputValue}
       noOptionsMessage={() => "Sem opções"}
       loadingMessage={() => "Carregando"}
       filterOption={(e) => {
-          if(Array.isArray(filter)){
-            return filterField ? filter.some((item) => e.data[filterField]?.label === item.label) : true
-          } else { return filterField ? filter === e.data[filterField]?.label : true }
-        }}
+        if(Array.isArray(filter)){
+          return filterField ? filter.some((item) => e.data[filterField]?.label === item.label) : true
+        } else { return filterField ? filter === e.data[filterField]?.label : true }
+      }}
       onChange={(value) => (
         onChange
           ? onChange({ target: { name, value }, setFields })

@@ -22,7 +22,7 @@ export const  navItems = [
     { label: 'Grupo' },
     { label: 'Fabricante' },
   ] },
-  { label: 'Caderno de campo', icon: NotebookIcon, color: '#419645' },
+  { label: 'Caderno de campo', icon: NotebookIcon, color: '#419645', path: '/cadernos-de-campo' },
   { label: 'Lotes de plantio', icon: PlantingLotsIcon, color: '#8bc53f', path: '/lotes-de-plantio' },
   { label: 'Controle de EC & PH', icon: MeasureIcon, color: '#13739e' },
   { label: 'Lista de atividades', icon: ListIcon, color: '#00a1a5' },

@@ -180,16 +180,16 @@ export const listCardGridTemplate = css`
   ;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
-  @media screen {
-    @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {
+  @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {
       grid-template:
         "id greenHouse grennery tags history delete"
         "id date harvestForecast tags history delete"
       ;
       grid-template-columns: auto 1fr 1fr 40px 40px 40px;
     }
-  
-    @media (min-width: ${({ theme: { screen: { screenLG} }}) => screenLG}) {
+  }
+
+  @media (min-width: ${({ theme: { screen: { screenLG} }}) => screenLG}) {
       grid-template:
         "id greenHouse grennery date harvestForecast tags history delete"
       ;

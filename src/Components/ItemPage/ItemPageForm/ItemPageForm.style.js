@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ItemPageForm = styled.section`
   ${({ gridTemplate }) => gridTemplate};
   position: relative;
-  border: 2px solid ${({ theme: { color: { brand } } }) => brand };
+  border: 2px solid ${({ theme: { color: { brandDark } } }) => brandDark };
   border-radius: 0 0 20px 20px;
   padding: 30px 20px 20px;
   margin: 0 20px;
@@ -11,11 +11,23 @@ export const ItemPageForm = styled.section`
   display: grid;
   max-width: 800px;
 
+  >div {
+    border-color: ${({ theme: { color: { cream }}}) => cream };
+  }
+
   input {
     background: ${({ theme: { color: { cream }}}) => cream };
   }
 
+  label {
+    background: ${({ theme: { color: { white }}}) => white };
+  }
+
   .inputSelect__control {
+    background: ${({ theme: { color: { cream }}}) => cream };
+  }
+
+  .react-date-picker {
     background: ${({ theme: { color: { cream }}}) => cream };
   }
 
@@ -25,7 +37,7 @@ export const ItemPageForm = styled.section`
     position: absolute;
     width: 12px;
     height: 12px;
-    background: ${({ theme: { color: { brand } } }) => brand };
+    background: ${({ theme: { color: { brandDark } } }) => brandDark };
     border-radius: 50%;
     top: -6px;
     left: -6px;
@@ -39,9 +51,9 @@ export const ItemPageForm = styled.section`
     width: 20px;
     height: 20px;
     font-weight: bolder;
-    color: ${({ theme: { color: { brand } } }) => brand };
+    color: ${({ theme: { color: { brandDark } } }) => brandDark };
     background: ${({ theme: { color: { white } } }) => white };
-    border: 2px solid ${({ theme: { color: { brand } } }) => brand };
+    border: 2px solid ${({ theme: { color: { brandDark } } }) => brandDark };
     outline: 6px solid ${({ theme: { color: { white } } }) => white };
     transform: rotate(90deg);
     border-radius: 50%;

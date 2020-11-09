@@ -15,6 +15,15 @@ export default function ListPageCard({fieldType, fieldLabel, gridTemplate, ...li
       return <S.ListPageCardFieldIcon tooltip="Histórico" name={fieldType}><HistoryIcon /></S.ListPageCardFieldIcon>
     case 'delete':
       return <S.ListPageCardFieldIcon tooltip="Excluir" name={fieldType}><TrashIcon /></S.ListPageCardFieldIcon>
+    case 'dateAndTime': 
+      return (
+        <S.ListPageCardField name={fieldType}>
+          <S.ListPageCardFieldLabel>{fieldLabel}:</S.ListPageCardFieldLabel>
+          <S.ListPageCardFieldValue>
+            {format(listPageCardInfoProps[fieldType], "dd/MM/yyyy - hh:mm", { locale: ptBR })}
+          </S.ListPageCardFieldValue>
+        </S.ListPageCardField>
+      )
     case 'date': 
     case 'harvestForecast':
       return (
@@ -32,6 +41,13 @@ export default function ListPageCard({fieldType, fieldLabel, gridTemplate, ...li
           <S.ListPageCardFieldIDValue>{listPageCardInfoProps[fieldType]}</S.ListPageCardFieldIDValue>
         </S.ListPageCardFieldID>
       )
+    case 'status':
+      return (
+        <S.ListPageCardFieldStatus name={fieldType} ok={listPageCardInfoProps[fieldType] === "Ok"}>
+          <S.ListPageCardFieldStatusLabel>{fieldLabel}:</S.ListPageCardFieldStatusLabel>
+          <S.ListPageCardFieldStatusValue>{listPageCardInfoProps[fieldType]}</S.ListPageCardFieldStatusValue>
+        </S.ListPageCardFieldStatus>
+      ) 
     case 'greenHouse':
     case 'greenery': 
     case 'stages': 

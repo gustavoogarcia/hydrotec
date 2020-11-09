@@ -18,17 +18,11 @@ export default function PlantingLot () {
   }
 
   useEffect(() => {
-    setItem([
-      {
-        id: 1234,
-        date: new Date(),
-        greenHouse: 'Estufa Azul',
-        grennery: 'Alface',
-        harvestForecast: new Date()
-      },
-    ])
+    setItem([{id: 1234, date: new Date(), greenHouse: 'Estufa Azul', grennery: 'Alface', harvestForecast: new Date()}])
   },
   [])
+
+  console.log(itemFields);
 
   return (
     <S.PlantingLots>
