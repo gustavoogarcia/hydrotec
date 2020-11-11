@@ -7,8 +7,9 @@ import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import HeaderListItem from './HeaderListItem';
 import { navItems } from './Header.constants';
+import { logout } from '../../service/auth';
 
-export default function Header () {
+export default function Header ({setCurrentUser}) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const atualDate = format(new Date(), "dd 'de' LLLL 'de' yyyy", { locale: ptBR });
 
@@ -23,7 +24,7 @@ export default function Header () {
             <UserIcon />
             <S.HeaderInfoUserValue isOpen={menuIsOpen}>Nome do Usuário</S.HeaderInfoUserValue>
           </S.HeaderInfoUser>
-          <S.HeaderInfoLogout isOpen={menuIsOpen}>sair</S.HeaderInfoLogout>
+          <S.HeaderInfoLogout isOpen={menuIsOpen} onClick={() => logout({setCurrentUser})}>sair</S.HeaderInfoLogout>
         </S.HeaderInfo>
       </S.Header>
       <S.HeaderNav isOpen={menuIsOpen}>

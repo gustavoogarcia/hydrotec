@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { lighten } from 'polished';
+import Button from '../../Button';
 
 export const ListPageCards = styled.div`
   padding: 0 20px 20px;
@@ -35,7 +36,18 @@ export const ListPageCardFieldLabel = styled.div`
   color: ${({ theme: { color: { brandComplementarDark }}}) => brandComplementarDark };
 `
 
-export const ListPageCardFieldValue = styled.div`
+export const ListPageCardFieldValue = styled.button`
+`
+
+export const ListPageCardFieldActionValue = styled(Button)`
+  width: 100%;
+
+  &:hover {
+    &:disabled {
+      background: ${({ theme: { color: { brand }}}) => brand };
+      cursor: default;
+    }
+  }
 `
 
 export const ListPageCardFieldID = styled.div`
@@ -155,3 +167,25 @@ export const ListPageCardFieldIcon = styled.button`
     }
   }
 `
+
+export const ListPageCardFieldMeter = styled.div`
+  grid-area: ${({ name }) => name };
+`
+
+export const ListPageCardFieldMeterLabel = styled.div`
+  margin-bottom: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  color: ${({ theme: { color: { brandComplementarDark }}}) => brandComplementarDark };
+`
+
+export const ListPageCardFieldMeterValue = styled.p`
+  background: ${({ theme: { color: { brand }}}) => lighten(.4, brand) };
+  font-size: 12px;
+  width: 100%;
+  padding: 8px 16px;
+  text-align: center;
+`
+
+
+

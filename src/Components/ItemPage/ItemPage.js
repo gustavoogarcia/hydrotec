@@ -11,7 +11,7 @@ import { useHistory } from 'react-router-dom';
 export default function ItemPage(ItemPageProps) {
   const { id } = useParams();
   const history = useHistory();
-  const { pageLabel: { singular, newLabel, editLabel }, children  } = ItemPageProps;
+  const { pageLabel: { singular, newLabel, editLabel }, children, onSubmit } = ItemPageProps;
 
   return (
     <S.ItemPage>
@@ -20,7 +20,7 @@ export default function ItemPage(ItemPageProps) {
       <ItemPageForm {...ItemPageProps} />
       {children}
       <S.ItemPageButtons>
-        <Button variation="primary" label="Salvar" rightIcon={SaveIcon} />
+        <Button variation="primary" label={ id ? "Editar" : "Voltar"} rightIcon={SaveIcon} onClick={onSubmit}/>
         <Button variation="danger" label="Voltar" rightIcon={CancelIcon} onClick={() => history.goBack() } />
       </S.ItemPageButtons>
     </S.ItemPage>

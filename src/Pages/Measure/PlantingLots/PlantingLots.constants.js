@@ -71,7 +71,7 @@ export const plantingLotsSearchFields = ({ fields }) => ({
     label: 'Gerar PDF',
     type: 'button',
     variation: 'danger',
-    rightIcon: GeneratePDFIcon ,
+    rightIcon: GeneratePDFIcon 
   },
   exportCSV: { 
     name: 'exportCSV',
@@ -180,16 +180,16 @@ export const listCardGridTemplate = css`
   ;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
-  @media screen {
-    @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {
+  @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {
       grid-template:
         "id greenHouse greenery tags history delete"
         "id date harvestForecast tags history delete"
       ;
       grid-template-columns: auto 1fr 1fr 40px 40px 40px;
     }
-  
-    @media (min-width: ${({ theme: { screen: { screenLG} }}) => screenLG}) {
+  }
+
+  @media (min-width: ${({ theme: { screen: { screenLG} }}) => screenLG}) {
       grid-template:
         "id greenHouse greenery date harvestForecast tags history delete"
       ;

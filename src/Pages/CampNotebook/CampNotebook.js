@@ -24,7 +24,7 @@ export default function CampNotebook () {
 
   useEffect(() => {
     setItem([
-      { id: 1234, date: new Date(), greenHouse: 'Estufa Azul', grennery: 'Alface', harvestForecast: new Date() },
+      { id: 1234, date: new Date(), greenHouse: 'Estufa Azul', greenery: 'Alface', harvestForecast: new Date() },
     ])
   }, [])
 

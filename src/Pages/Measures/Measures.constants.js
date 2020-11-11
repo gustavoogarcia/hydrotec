@@ -4,24 +4,22 @@ import exportCSVIcon from '../../images/ExportIcon';
 import { css } from 'styled-components';
 
 export const type = 'list'
-export const pageColor = '#8bc53f'
+export const pageColor = '#13739e'
 export const pageLabel = {
-  name: 'plantingLots',
-  singular: 'lote de plantio',
-  plural: 'lotes de plantio'
+  name: 'measures',
+  singular: 'controle de PH & EC',
+  plural: 'controles de PH & EC'
 };
 
-export const plantingLotsSearchFieldsState = () => ({
+export const measuresSearchFieldsState = () => ({
   from: { value: '' },
   until: { value: '' },
-  greenHouse: { value: '' },
-  grennery: { value: '' },
-  stage: { value: '' },
+  reservatory: { value: '' },
   sortBy: { value: { label: 'Data ↓', value: 'dateDsc' } },
   limit: { value: { label: '20', value: 20 } },
 });
 
-export const plantingLotsSearchFields = ({ fields }) => ({
+export const measuresSearchFields = ({ fields }) => ({
   from: { 
     ...fields.from,
     name: 'from',
@@ -34,27 +32,10 @@ export const plantingLotsSearchFields = ({ fields }) => ({
     label: 'Até',
     type: 'date' 
   },
-  greenHouse: { 
-    ...fields.greenHouse,
-    name: 'greenHouse',
-    label: 'Estufa',
-    placeholder: 'Escreve ou selecione',
-    type: 'select',
-    isSearchable: true,
-  },
-  grennery: { 
-    ...fields.grennery,
-    name: 'grennery',
-    label: 'Hortaliça',
-    placeholder: 'Escreve ou selecione',
-    type: 'select',
-    isSearchable: true,
-    
-  },
-  stage: { 
-    ...fields.stage,
-    name: 'stage',
-    label: 'Estágio',
+  reservatory: { 
+    ...fields.reservatory,
+    name: 'reservatory',
+    label: 'Reservatório',
     placeholder: 'Escreve ou selecione',
     type: 'select',
     isSearchable: true,
@@ -71,7 +52,7 @@ export const plantingLotsSearchFields = ({ fields }) => ({
     label: 'Gerar PDF',
     type: 'button',
     variation: 'danger',
-    rightIcon: GeneratePDFIcon 
+    rightIcon: GeneratePDFIcon ,
   },
   exportCSV: { 
     name: 'exportCSV',
@@ -88,12 +69,8 @@ export const plantingLotsSearchFields = ({ fields }) => ({
     options: [
       { label: 'Data ↓', value: 'dateDsc' }, 
       { label: 'Data ↑', value: 'dateAsc' }, 
-      { label: 'Estufa ↓', value: 'greenHouseDsc' }, 
-      { label: 'Estufa ↑', value: 'greenHouseAsc' }, 
-      { label: 'Hortaliça ↓', value: 'grenneryDsc' }, 
-      { label: 'Hortaliça ↑', value: 'grenneryAsc' }, 
-      { label: 'Prev. de colheita ↓', value: 'harvestForecastDsc' }, 
-      { label: 'Prev. de colheita ↑', value: 'harvestForecastAsc' }, 
+      { label: 'Reservatorio ↓', value: 'reservatoryeDsc' }, 
+      { label: 'Reservatorio ↑', value: 'reservatoryeAsc' }, 
     ],
     isSearchable: true,
   },
@@ -112,36 +89,31 @@ export const plantingLotsSearchFields = ({ fields }) => ({
 });
 
 export const cardInfos = [
-  { fieldLabel: 'Número do lote', fieldType: 'id' },
-  { fieldLabel: 'Hortaliça', fieldType: 'grennery' },
-  { fieldLabel: 'Estufa', fieldType: 'greenHouse' },
-  { fieldLabel: 'Data de plantio', fieldType: 'date' },
-  { fieldLabel: 'Prev. de colheita', fieldType: 'harvestForecast' },
-  { fieldLabel: '', fieldType: 'tags' },
-  { fieldLabel: '', fieldType: 'history' },
-  { fieldLabel: '', fieldType: 'delete' },
+  { fieldLabel: 'Data', fieldType: 'dateAndTime' },
+  { fieldLabel: 'Reservatório', fieldType: 'reservatory' },
+  { fieldLabel: 'EC', fieldType: 'ec' },
+  { fieldLabel: 'Temperatura', fieldType: 'temperature' },
+  { fieldLabel: 'PH', fieldType: 'ph' },
+  { fieldLabel: 'Ação', fieldType: 'action' },
 ]
 
 export const searchGridTemplate = css`
   grid-template: ${`
     "from" 
     "until" 
-    "grennery"
-    "greenHouse"
-    "stage"
+    "reservatory"
     "sortBy"
+    "limit"
     "submitButton"
     "generatePDF"
     "exportCSV"
-    "limit"
   `};
 
   @media screen {
     @media (min-width: ${({ theme: { screen: { screenXS } }}) => screenXS}) {
       grid-template: ${`
         "from until" 
-        "grennery grennery"
-        "greenHouse stage"
+        "reservatory reservatory"
         "sortBy limit"
         "submitButton submitButton" 
         "generatePDF exportCSV"
@@ -152,7 +124,7 @@ export const searchGridTemplate = css`
     @media (min-width: ${({ theme: { screen: { screenMD } }}) => screenMD }) {
       grid-template:
         "from from from from until until until until . . . ." 
-        "grennery grennery grennery grennery greenHouse greenHouse greenHouse greenHouse stage stage stage stage"
+        "reservatory reservatory reservatory reservatory reservatory reservatory . . . . . ."
         "sortBy sortBy sortBy sortBy sortBy sortBy limit limit limit limit . ."
         "submitButton submitButton submitButton submitButton generatePDF generatePDF generatePDF generatePDF exportCSV exportCSV exportCSV exportCSV "
       ;
@@ -162,7 +134,7 @@ export const searchGridTemplate = css`
     @media (min-width: ${({ theme: { screen: { screenLG } }}) => screenLG }) {
       grid-template:
         "from from from from until until until until . . . ." 
-        "grennery grennery grennery grennery greenHouse greenHouse greenHouse greenHouse stage stage stage stage"
+        "reservatory reservatory reservatory reservatory reservatory reservatory . . . . . ."
         "sortBy sortBy sortBy limit limit limit . . . . . ."
         "submitButton submitButton submitButton generatePDF generatePDF generatePDF exportCSV exportCSV exportCSV . . ."
       ;
@@ -171,29 +143,31 @@ export const searchGridTemplate = css`
   }
 `
 
+
+// id: 123,
+// dateAndTime: new Date(),
+// reservatory: 'amarelo',
+// ec: 1400,
+// ecRamge: [700, 1800],
+// temperature: 25,
+// temperatureRamge: [22, 30],
+// ph: 6.3,
+// phRamge: [5, 7.5] 
+
 export const listCardGridTemplate = css`
   grid-template: 
-    "id id id id id id"
-    "greenHouse greenHouse greenHouse grennery grennery grennery"
-    "date date date harvestForecast harvestForecast harvestForecast"
-    "tags tags history history delete delete"
+    "dateAndTime dateAndTime reservatory"
+    "ec temperature ph"
+    "action action action"
   ;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 
-  @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {
+  @media screen {  
+    @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {
       grid-template:
-        "id greenHouse grennery tags history delete"
-        "id date harvestForecast tags history delete"
+        "dateAndTime reservatory ec temperature ph action"
       ;
-      grid-template-columns: auto 1fr 1fr 40px 40px 40px;
-    }
-  }
-
-  @media (min-width: ${({ theme: { screen: { screenLG} }}) => screenLG}) {
-      grid-template:
-        "id greenHouse grennery date harvestForecast tags history delete"
-      ;
-      grid-template-columns: auto 1fr 1fr 1fr 1fr 40px 40px 40px;
+      grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
     }
   }
 `
