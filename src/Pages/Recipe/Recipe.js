@@ -23,7 +23,7 @@ export default function Recipe () {
 
   useEffect(() => {
     const params = mapFieldsToData({fields: searchFields});
-    http.get('lote-plantio', { params })
+    http.get('receita', { params })
       .then(({ data }) => setList(data))
       .catch((err) => console.log(err))
   }, [])

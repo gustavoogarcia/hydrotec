@@ -23,7 +23,7 @@ export default function WaterTank () {
 
   useEffect(() => {
     const params = mapFieldsToData({fields: searchFields});
-    http.get('lote-plantio', { params })
+    http.get('caixa-dagua', { params })
       .then(({ data }) => setList(data))
       .catch((err) => console.log(err))
   }, [])

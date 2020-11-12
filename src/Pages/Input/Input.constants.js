@@ -12,36 +12,37 @@ export const pageLabel = {
 };
 
 export const inputSearchFieldsState = () => ({
-  from: { value: '' },
-  until: { value: '' },
-  greenHouse: { value: '' },
-  greenery: { value: '' },
-  stage: { value: '' },
+  nanem: { value: '' },
+  manufacturer: { value: '' },
+  status: { value: '' },
   sortBy: { value: { label: 'Data ↓', value: 'dateDsc' } },
   limit: { value: { label: '20', value: 20 } },
 });
 
 export const inputSearchFields = ({ fields }) => ({
-  submitButton: { 
-    name: 'submitButton',
-    label: 'Pesquisar',
-    type: 'button',
-    variation: 'primary',
-    rightIcon: SearchIcon 
+  name:{
+    ...fields.name,
+    name: 'name',
+    label: 'Nome',
+    placeholder: 'Digite',  
   },
-  generatePDF: { 
-    name: 'generatePDF',
-    label: 'Gerar PDF',
-    type: 'button',
-    variation: 'danger',
-    rightIcon: GeneratePDFIcon ,
+  manufacturer: {
+    ...fields.manufacturer,
+    name: 'manufacturer',
+    label: 'Fabricante',
+    placeholder: 'Digite',
   },
-  exportCSV: { 
-    name: 'exportCSV',
-    label: 'Exportar CSV',
-    type: 'button',
-    variation: 'warning',
-    rightIcon: exportCSVIcon 
+  status: {
+    ...fields.status,
+    name: 'status',
+    label: 'Status',
+    type: 'select',
+    placeholder: 'Selecione',
+    options: [
+      { label: 'Ativo', value: 'active' }, 
+      { label: 'Inativo', value: 'inative' },  
+    ],
+    isClearable: true
   },
   sortBy: { 
     ...fields.sortBy,
@@ -66,17 +67,42 @@ export const inputSearchFields = ({ fields }) => ({
       { label: '100', value: 100 }, 
     ],
   },
+  submitButton: { 
+    name: 'submitButton',
+    label: 'Pesquisar',
+    type: 'button',
+    variation: 'primary',
+    rightIcon: SearchIcon 
+  },
+  generatePDF: { 
+    name: 'generatePDF',
+    label: 'Gerar PDF',
+    type: 'button',
+    variation: 'danger',
+    rightIcon: GeneratePDFIcon ,
+  },
+  exportCSV: { 
+    name: 'exportCSV',
+    label: 'Exportar CSV',
+    type: 'button',
+    variation: 'warning',
+    rightIcon: exportCSVIcon 
+  },
 });
 
 export const cardInfos = [
-  { fieldLabel: 'Nome do Plano', fieldType: 'name' },
-  { fieldLabel: 'Preço', fieldType: 'price' },
+  { fieldLabel: 'Nome', fieldType: 'name' },
+  { fieldLabel: 'Fabricante', fieldType: 'manufacturer' },
+  { fieldLabel: 'Status', fieldType: 'status' },
   { fieldLabel: '', fieldType: 'history' },
   { fieldLabel: '', fieldType: 'delete' },
 ]
 
 export const searchGridTemplate = css`
   grid-template: ${`
+    "name"
+    "status"
+    "manufacturer"
     "sortBy"
     "limit"
     "submitButton"
@@ -87,44 +113,46 @@ export const searchGridTemplate = css`
   @media screen {
     @media (min-width: ${({ theme: { screen: { screenXS } }}) => screenXS}) {
       grid-template: ${`
+        "status name manufacturer"
         "sortBy limit"
         "submitButton submitButton" 
         "generatePDF exportCSV"
       `};
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
 
     @media (min-width: ${({ theme: { screen: { screenMD } }}) => screenMD }) {
       grid-template:
-        "sortBy sortBy sortBy sortBy sortBy sortBy limit limit limit limit . ."
-        "submitButton submitButton submitButton submitButton generatePDF generatePDF generatePDF generatePDF exportCSV exportCSV exportCSV exportCSV "
+        "name name name manufacturer manufacturer manufacturer status status status sortBy sortBy sortBy limit limit limit"
+        "submitButton submitButton submitButton submitButton generatePDF generatePDF generatePDF generatePDF exportCSV exportCSV exportCSV exportCSV . . . "
       ;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     }
     
     @media (min-width: ${({ theme: { screen: { screenLG } }}) => screenLG }) {
       grid-template:
-        "sortBy sortBy sortBy limit limit limit . . . . . ."
-        "submitButton submitButton submitButton generatePDF generatePDF generatePDF exportCSV exportCSV exportCSV . . ."
+      "name name name manufacturer manufacturer manufacturer status status status sortBy sortBy sortBy limit limit limit"
+      "submitButton submitButton submitButton submitButton generatePDF generatePDF generatePDF generatePDF exportCSV exportCSV exportCSV exportCSV . . . "
       ;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     }
   }
 `
 
 export const listCardGridTemplate = css`
   grid-template: 
-    "name name price price"
+    "status status status status"
+    "name name manufacturer manufacturer"
     "history history delete delete"
   ;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 
   @media screen {
     @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {
       grid-template:
-        "name price history delete"
+        "status name manufacturer history delete"
       ;
-      grid-template-columns: 1fr 1fr 40px 40px;
+      grid-template-columns: 80px 1fr 1fr 40px 40px;
     }
   }
 `
