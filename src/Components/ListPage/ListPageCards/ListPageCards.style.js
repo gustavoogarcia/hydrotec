@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { lighten } from 'polished';
+import { lighten, desaturate } from 'polished';
 import Button from '../../Button';
 
 export const ListPageCards = styled.div`
@@ -180,7 +180,7 @@ export const ListPageCardFieldMeterLabel = styled.div`
 `
 
 export const ListPageCardFieldMeterValue = styled.p`
-  background: ${({ theme: { color: { brand }}}) => lighten(.4, brand) };
+  background: ${({ theme: { color: { brand }}}) => desaturate(.2, lighten(.3, brand)) };
   font-size: 12px;
   width: 100%;
   padding: 8px 16px;

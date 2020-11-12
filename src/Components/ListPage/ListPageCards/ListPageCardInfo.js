@@ -7,7 +7,7 @@ import TagIcon from '../../../images/TagsIcon';
 import * as S from './ListPageCards.style';
 import { useHistory, useRouteMatch } from "react-router-dom";
 
-export default function ListPageCard({fieldType, fieldLabel, gridTemplate, ...listPageCardInfoProps }) {
+export default function ListPageCard({fieldType, fieldLabel, removeItem, index, gridTemplate, ...listPageCardInfoProps }) {
   const router = useRouteMatch();
   const history = useHistory();
 
@@ -17,7 +17,11 @@ export default function ListPageCard({fieldType, fieldLabel, gridTemplate, ...li
     case 'history':
       return <S.ListPageCardFieldIcon tooltip="Histórico" onClick={() => history.push(`${router.url}/${listPageCardInfoProps.id}`)} name={fieldType}><HistoryIcon /></S.ListPageCardFieldIcon>
     case 'delete':
-      return <S.ListPageCardFieldIcon tooltip="Excluir" name={fieldType}><TrashIcon /></S.ListPageCardFieldIcon>
+      return (
+        <S.ListPageCardFieldIcon tooltip="Excluir" name={fieldType} onClick={() => removeItem({ id: listPageCardInfoProps.id, index })}>
+          <TrashIcon />
+        </S.ListPageCardFieldIcon>
+      )
     case 'dateAndTime': 
       return (
         <S.ListPageCardField name={fieldType}>
@@ -78,16 +82,15 @@ export default function ListPageCard({fieldType, fieldLabel, gridTemplate, ...li
     case 'greenery': 
       return (
         <S.ListPageCardField name={fieldType}>
-          {console.log(listPageCardInfoProps)}
           <S.ListPageCardFieldLabel>{fieldLabel}:</S.ListPageCardFieldLabel>
-          <S.ListPageCardFieldValue>{listPageCardInfoProps.hortalica.nome}</S.ListPageCardFieldValue>
+          <S.ListPageCardFieldValue>{listPageCardInfoProps.hortalica?.nome}</S.ListPageCardFieldValue>
         </S.ListPageCardField>
       )
     case 'greenHouse':
       return (
         <S.ListPageCardField name={fieldType}>
           <S.ListPageCardFieldLabel>{fieldLabel}:</S.ListPageCardFieldLabel>
-          <S.ListPageCardFieldValue>{listPageCardInfoProps.estufa.nome}</S.ListPageCardFieldValue>
+          <S.ListPageCardFieldValue>{listPageCardInfoProps.estufa?.nome}</S.ListPageCardFieldValue>
         </S.ListPageCardField>
       )
     case 'stages': 

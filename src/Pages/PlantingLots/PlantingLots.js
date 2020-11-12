@@ -16,9 +16,19 @@ export default function PlantingLots () {
   const [totalCount, setTotalCount] = useState('');
   const [fields, setFields] = useState(plantingLotsSearchFieldsState);
   const searchFields = plantingLotsSearchFields({fields});
+
+  const removeItem = ({ id, index }) => {
+    http.delete(`lote-plantio/${id}`)
+      .then(res => setList((oldList) => {
+        const newList = [ ...oldList ];
+        newList.splice(index, 1);
+        return newList;
+      }))
+  }
+
   const listPageObject = {
     ...constants, loading, error, page, totalPages, totalCount, list, fields: searchFields,
-    setLoading, setError, setPage, setTotalPages, setTotalCount, icon: PlantingLotsIcon, setList, setFields, 
+    setLoading, setError, setPage, setTotalPages, setTotalCount, icon: PlantingLotsIcon, setList, setFields, removeItem
   }
 
   useEffect(() => {

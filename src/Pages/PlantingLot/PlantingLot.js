@@ -5,7 +5,6 @@ import PlantingLotsIcon from '../../images/PlantingLotsIcon';
 import * as S from './PlantingLot.style';
 import * as constants from './PlantingLot.constants';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 
 export default function PlantingLot () {
   const { id } = useParams();
@@ -14,7 +13,6 @@ export default function PlantingLot () {
   const [error, setError] = useState(false);
   const [fields, setFields] = useState(plantingLotFieldsState);
   const itemFields = plantingLotFields({fields});
-  let currentUser = JSON.parse(window.localStorage.getItem('currentUser'));
 
   useEffect(() => {
     if(id) {
@@ -33,20 +31,15 @@ export default function PlantingLot () {
   }, [id])
 
   const onSubmit = () => {
-    axios({
-      method: id ? 'post' : 'patch',
-      url: 'https://dzmz3u9yic.execute-api.us-east-2.amazonaws.com/dev/lote-plantio',
-      headers: { 'Authorization': `Bearer ${currentUser.access_token}` },
-      data: {
-        organizacaoId: currentUser.organizacaoId,
-        hortalicaId: fields.greenery.value.value,
-        estufaId: fields.greenHouse.value.value,
-        setorId: fields.sector.value.value,
-        bancaId: fields.stand.value.value,
-        quantidade: fields.amount.value,
-        dataPlantio: fields.from.value,
-        observacao: fields.comments.value,
-      }
+    http[id ? 'patch' : 'post'](`lote-plantio${id ? `/${id}` : ''}`, {
+      organizacaoId: '7080d758-fe8a-11ea-adc1-0242ac120002',
+      hortalicaId: fields.greenery.value.value,
+      estufaId: fields.greenHouse.value.value,
+      setorId: fields.sector.value.value,
+      bancaId: fields.stand.value.value,
+      quantidade: fields.amount.value,
+      dataPlantio: fields.from.value,
+      observacao: fields.comments.value,
     })
       .then(({ data }) => console.log(data))
       .catch((err) => console.log(err))

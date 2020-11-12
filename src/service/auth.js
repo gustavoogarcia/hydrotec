@@ -1,15 +1,10 @@
 import jwt_decode from "jwt-decode";
 import sha256 from 'js-sha256';
-import axios from 'axios';
+import http from '../service';
 
 export function login ({ email, password }) {
   const encryptedPassword = sha256(password);
-
-  return axios({
-    method: 'post',
-    url: 'https://dzmz3u9yic.execute-api.us-east-2.amazonaws.com/dev/login',
-    data: { email, password: encryptedPassword }
-  })
+  return http.post('/login', { email, password: encryptedPassword })
     .then((res) => {
       const { data: { access_token } } = res
       const currentUser = jwt_decode(access_token);
