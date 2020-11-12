@@ -10,8 +10,33 @@ import CampNotebooks from '../Pages/CampNotebooks';
 import CampNotebook from '../Pages/CampNotebook';
 import Measures from '../Pages/Measures';
 import Measure from '../Pages/Measure';
+import Plans from '../Pages/Plans';
+import Farms from '../Pages/Farms';
+import Users from '../Pages/Users';
+import NutritiveSolutions from '../Pages/NutritiveSolutions'
+import Input from '../Pages/Input'
+import Greenery from '../Pages/Greenery'
+import Recipe from '../Pages/Recipe'
+import Pest from '../Pages/Pest'
+import Group from '../Pages/Group'
+import Manufacturer from'../Pages/Manufacturer'
+import Greenhouse from '../Pages/Greenhouse'
+import WaterTank from '../Pages/WaterTank'
+
 
 export const routes = [
+  { path: '/solucoes-nutritivas', component: NutritiveSolutions },
+  { path: '/caixas-dagua', component: WaterTank },
+  { path: '/estufas', component: Greenhouse },
+  { path: '/fabricantes', component: Manufacturer},
+  { path: '/pragas', component: Pest} ,
+  { path: '/grupos', component: Group} ,
+  { path: '/receitas', component: Recipe },
+  { path: '/hortalicas', component: Greenery },
+  { path: '/usuarios', component: Users },
+  { path: '/insumos', component: Input },
+  { path: '/fazendas', component: Farms },
+  { path: '/planos', component: Plans },
   { path: '/cadernos-de-campo/novo', component: CampNotebook },
   { path: '/cadernos-de-campo/:id', component: CampNotebook },
   { path: '/cadernos-de-campo', component: CampNotebooks },
