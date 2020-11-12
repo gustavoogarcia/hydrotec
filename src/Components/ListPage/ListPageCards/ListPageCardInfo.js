@@ -49,6 +49,24 @@ export default function ListPageCard({fieldType, fieldLabel, removeItem, index, 
           </S.ListPageCardFieldValue>
         </S.ListPageCardField>
       )
+    case 'farm':
+      return (
+        <S.ListPageCardField name={fieldType}>
+          <S.ListPageCardFieldLabel>{fieldLabel}:</S.ListPageCardFieldLabel>
+          <S.ListPageCardFieldValue>
+            {listPageCardInfoProps.organizacao?.nomeFantasia}
+          </S.ListPageCardFieldValue>
+        </S.ListPageCardField>
+      )
+    case 'plan':
+      return (
+        <S.ListPageCardField name={fieldType}>
+          <S.ListPageCardFieldLabel>{fieldLabel}:</S.ListPageCardFieldLabel>
+          <S.ListPageCardFieldValue>
+            {listPageCardInfoProps.plano?.nome}
+          </S.ListPageCardFieldValue>
+        </S.ListPageCardField>
+      )
     case 'id': 
       return (
         <S.ListPageCardFieldID name={fieldType}>
@@ -56,12 +74,26 @@ export default function ListPageCard({fieldType, fieldLabel, removeItem, index, 
           <S.ListPageCardFieldIDValue>{listPageCardInfoProps.sigla}</S.ListPageCardFieldIDValue>
         </S.ListPageCardFieldID>
       )
+    case 'recorrence': 
+      return (
+        <S.ListPageCardField name={fieldType}>
+          <S.ListPageCardFieldLabel>{fieldLabel}:</S.ListPageCardFieldLabel>
+          <S.ListPageCardFieldValue>{listPageCardInfoProps.recorrencia} dias</S.ListPageCardFieldValue>
+        </S.ListPageCardField>
+      )
     case 'status':
       return (
-        <S.ListPageCardFieldStatus name={fieldType} ok={listPageCardInfoProps[fieldType] === "Ok"}>
+        <S.ListPageCardFieldStatus name={fieldType} isActive={listPageCardInfoProps.isActive}>
           <S.ListPageCardFieldStatusLabel>{fieldLabel}:</S.ListPageCardFieldStatusLabel>
-          <S.ListPageCardFieldStatusValue>{listPageCardInfoProps[fieldType]}</S.ListPageCardFieldStatusValue>
+          <S.ListPageCardFieldStatusValue>{listPageCardInfoProps.isActive ? 'Ativo' : 'Inativo' }</S.ListPageCardFieldStatusValue>
         </S.ListPageCardFieldStatus>
+      ) 
+    case 'payment':
+      return (
+        <S.ListPageCardField name={fieldType} isActive={listPageCardInfoProps.isActive}>
+          <S.ListPageCardFieldLabel>{fieldLabel}:</S.ListPageCardFieldLabel>
+          <S.ListPageCardFieldValue>{listPageCardInfoProps.pagamentoRegularizado ? 'Em dia' : 'Atrasado' }</S.ListPageCardFieldValue>
+        </S.ListPageCardField>
       ) 
     case 'action':
       return (
@@ -91,6 +123,27 @@ export default function ListPageCard({fieldType, fieldLabel, removeItem, index, 
         <S.ListPageCardField name={fieldType}>
           <S.ListPageCardFieldLabel>{fieldLabel}:</S.ListPageCardFieldLabel>
           <S.ListPageCardFieldValue>{listPageCardInfoProps.estufa?.nome}</S.ListPageCardFieldValue>
+        </S.ListPageCardField>
+      )
+    case 'name':
+      return (
+        <S.ListPageCardField name={fieldType}>
+          <S.ListPageCardFieldLabel>{fieldLabel}:</S.ListPageCardFieldLabel>
+          <S.ListPageCardFieldValue>{listPageCardInfoProps?.nome}</S.ListPageCardFieldValue>
+        </S.ListPageCardField>
+      )
+    case 'fantasyName':
+      return (
+        <S.ListPageCardField name={fieldType}>
+          <S.ListPageCardFieldLabel>{fieldLabel}:</S.ListPageCardFieldLabel>
+          <S.ListPageCardFieldValue>{listPageCardInfoProps?.nomeFantasia}</S.ListPageCardFieldValue>
+        </S.ListPageCardField>
+      )
+    case 'price':
+      return (
+        <S.ListPageCardField name={fieldType}>
+          <S.ListPageCardFieldLabel>{fieldLabel}:</S.ListPageCardFieldLabel>
+          <S.ListPageCardFieldValue>{listPageCardInfoProps?.valor}</S.ListPageCardFieldValue>
         </S.ListPageCardField>
       )
     case 'stages': 

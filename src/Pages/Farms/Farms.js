@@ -23,7 +23,7 @@ export default function Farms () {
 
   useEffect(() => {
     const params = mapFieldsToData({fields: searchFields});
-    http.get('lote-plantio', { params })
+    http.get('organizacao', { params })
       .then(({ data }) => setList(data))
       .catch((err) => console.log(err))
   }, [])

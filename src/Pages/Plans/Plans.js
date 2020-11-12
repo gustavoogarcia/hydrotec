@@ -23,7 +23,7 @@ export default function Plans () {
 
   useEffect(() => {
     const params = mapFieldsToData({fields: searchFields});
-    http.get('lote-plantio', { params })
+    http.get('plano', { params })
       .then(({ data }) => setList(data))
       .catch((err) => console.log(err))
   }, [])

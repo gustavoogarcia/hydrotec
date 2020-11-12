@@ -23,7 +23,7 @@ export default function Users () {
 
   useEffect(() => {
     const params = mapFieldsToData({fields: searchFields});
-    http.get('lote-plantio', { params })
+    http.get('usuario', { params })
       .then(({ data }) => setList(data))
       .catch((err) => console.log(err))
   }, [])

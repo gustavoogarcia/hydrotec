@@ -91,7 +91,7 @@ export const ListPageCardFieldStatus = styled.div`
   grid-area: ${({ name }) => name };
   display: flex;
   align-items: flex-end;
-  background: ${({ ok, theme: { color: { brand, warning }}}) => ok ? brand : warning };
+  background: ${({ isActive, theme: { color: { brand, warning }}}) => isActive ? brand : warning };
   border-radius: 12px 12px 0 0;
   margin: -8px -16px 0px -16px;
   padding: 8px;

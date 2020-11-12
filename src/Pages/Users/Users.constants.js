@@ -12,36 +12,53 @@ export const pageLabel = {
 };
 
 export const usersSearchFieldsState = () => ({
-  from: { value: '' },
-  until: { value: '' },
-  greenHouse: { value: '' },
-  greenery: { value: '' },
-  stage: { value: '' },
+  nameAndEmail: { value: '' },
+  farm: { value: '' },
+  roles: { value: '' },
+  status: { value: '' },
   sortBy: { value: { label: 'Data ↓', value: 'dateDsc' } },
   limit: { value: { label: '20', value: 20 } },
 });
 
 export const usersSearchFields = ({ fields }) => ({
-  submitButton: { 
-    name: 'submitButton',
-    label: 'Pesquisar',
-    type: 'button',
-    variation: 'primary',
-    rightIcon: SearchIcon 
+  nameAndEmail: {
+    ...fields.nameAndEmail,
+    name: 'nameAndEmail',
+    label: 'Nome ou email',
+    placeholder: 'Digite',
   },
-  generatePDF: { 
-    name: 'generatePDF',
-    label: 'Gerar PDF',
-    type: 'button',
-    variation: 'danger',
-    rightIcon: GeneratePDFIcon ,
+  farm: {
+    ...fields.farm,
+    name: 'farm',
+    label: 'Fazenda',
+    placeholder: 'Digite ou selecione',
+    type: 'select',
+    isSearchable: true,
   },
-  exportCSV: { 
-    name: 'exportCSV',
-    label: 'Exportar CSV',
-    type: 'button',
-    variation: 'warning',
-    rightIcon: exportCSVIcon 
+  roles: {
+    ...fields.roles,
+    name: 'roles',
+    label: 'Permissões',
+    placeholder: 'Selecione',
+    type: 'select',
+    options: [
+      { label: 'Gestor', value: 'manager' }, 
+      { label: 'Administrador', value: 'admin' }, 
+      { label: 'Operador', value: 'operator' }, 
+      { label: 'Técnico', value: 'technician' }, 
+    ],
+  },
+  status: {
+    ...fields.status,
+    name: 'status',
+    label: 'Status',
+    type: 'select',
+    placeholder: 'Selecione',
+    options: [
+      { label: 'Ativo', value: 'active' }, 
+      { label: 'Inativo', value: 'inative' },  
+    ],
+    isClearable: true
   },
   sortBy: { 
     ...fields.sortBy,
@@ -66,17 +83,45 @@ export const usersSearchFields = ({ fields }) => ({
       { label: '100', value: 100 }, 
     ],
   },
+  submitButton: { 
+    name: 'submitButton',
+    label: 'Pesquisar',
+    type: 'button',
+    variation: 'primary',
+    rightIcon: SearchIcon 
+  },
+  generatePDF: { 
+    name: 'generatePDF',
+    label: 'Gerar PDF',
+    type: 'button',
+    variation: 'danger',
+    rightIcon: GeneratePDFIcon ,
+  },
+  exportCSV: { 
+    name: 'exportCSV',
+    label: 'Exportar CSV',
+    type: 'button',
+    variation: 'warning',
+    rightIcon: exportCSVIcon 
+  },
 });
 
 export const cardInfos = [
-  { fieldLabel: 'Nome do Plano', fieldType: 'name' },
-  { fieldLabel: 'Preço', fieldType: 'price' },
+  { fieldLabel: 'Nome do Usuário', fieldType: 'name' },
+  { fieldLabel: 'Email', fieldType: 'email' },
+  { fieldLabel: 'Fazenda', fieldType: 'farm' },
+  { fieldLabel: 'Permissão', fieldType: 'roles' },
+  { fieldLabel: 'Status', fieldType: 'status' },
   { fieldLabel: '', fieldType: 'history' },
   { fieldLabel: '', fieldType: 'delete' },
 ]
 
 export const searchGridTemplate = css`
   grid-template: ${`
+    "nameAndEmail"
+    "farm"
+    "roles"
+    "status"
     "sortBy"
     "limit"
     "submitButton"
@@ -87,6 +132,8 @@ export const searchGridTemplate = css`
   @media screen {
     @media (min-width: ${({ theme: { screen: { screenXS } }}) => screenXS}) {
       grid-template: ${`
+        "nameAndEmail farm"
+        "roles status"
         "sortBy limit"
         "submitButton submitButton" 
         "generatePDF exportCSV"
@@ -96,7 +143,9 @@ export const searchGridTemplate = css`
 
     @media (min-width: ${({ theme: { screen: { screenMD } }}) => screenMD }) {
       grid-template:
-        "sortBy sortBy sortBy sortBy sortBy sortBy limit limit limit limit . ."
+        "nameAndEmail nameAndEmail nameAndEmail nameAndEmail nameAndEmail farm farm farm farm farm . ."
+        " status status status status roles roles roles roles . . . ."
+        "sortBy sortBy sortBy sortBy limit limit limit . . . . ."
         "submitButton submitButton submitButton submitButton generatePDF generatePDF generatePDF generatePDF exportCSV exportCSV exportCSV exportCSV "
       ;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -104,6 +153,7 @@ export const searchGridTemplate = css`
     
     @media (min-width: ${({ theme: { screen: { screenLG } }}) => screenLG }) {
       grid-template:
+        "nameAndEmail nameAndEmail nameAndEmail farm farm farm status status status roles roles roles"
         "sortBy sortBy sortBy limit limit limit . . . . . ."
         "submitButton submitButton submitButton generatePDF generatePDF generatePDF exportCSV exportCSV exportCSV . . ."
       ;
@@ -114,17 +164,19 @@ export const searchGridTemplate = css`
 
 export const listCardGridTemplate = css`
   grid-template: 
-    "name name price price"
+    "status status status status"
+    "name name email email"
+    "farm farm roles roles"
     "history history delete delete"
   ;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 
   @media screen {
     @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {
       grid-template:
-        "name price history delete"
+        "status name email farm roles history delete"
       ;
-      grid-template-columns: 1fr 1fr 40px 40px;
+      grid-template-columns: 80px 1fr 1fr 1fr 1fr 40px 40px;
     }
   }
 `
