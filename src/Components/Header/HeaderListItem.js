@@ -24,8 +24,8 @@ export default function HeaderListItem ({ label, icon: Icon, color, path, childs
       </S.HeaderNavListItemButton>
       { childs && (
         <S.HeaderNavListItemChilds isOpen={itemIsOpen}>
-          { childs.map(({label: childLabel, icon: Icon}) => (
-            <S.HeaderNavListItem key={childLabel}>
+          { childs.map(({label: childLabel, icon: Icon, path}) => (
+            <S.HeaderNavListItem key={childLabel} onClick={() => path && history.push(`${path}`)}>
               <S.HeaderNavListItemButton isChild color={color} >
                 { Icon && <Icon /> }
                 { childLabel }
