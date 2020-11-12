@@ -96,19 +96,36 @@ export default function ListPageCard({fieldType, fieldLabel, removeItem, index, 
         </S.ListPageCardField>
       ) 
     case 'action':
+      let variation = 'primary';
+      if (listPageCardInfoProps[fieldType] === 'Corrigido') { variation = 'warning' }
+      if (listPageCardInfoProps[fieldType] === 'Corrigir') { variation = 'danger' }
       return (
-        <S.ListPageCardField name={fieldType} ok={listPageCardInfoProps[fieldType] === "Ok"}>
+        <S.ListPageCardField name={fieldType} >
           <S.ListPageCardFieldLabel>{fieldLabel}:</S.ListPageCardFieldLabel>
-          <S.ListPageCardFieldActionValue variation="primary" disabled>{listPageCardInfoProps[fieldType]}</S.ListPageCardFieldActionValue>
+          <S.ListPageCardFieldActionValue variation={variation} disabled={variation !== 'primary'}>
+            {listPageCardInfoProps[fieldType]}
+          </S.ListPageCardFieldActionValue>
         </S.ListPageCardField>
       ) 
     case 'ec':
     case 'temperature':
     case 'ph':
+      let statusColor = 'brand';
+      if (
+        listPageCardInfoProps[fieldType] < listPageCardInfoProps[`${fieldType}Range`][0]
+          || listPageCardInfoProps[fieldType] > listPageCardInfoProps[`${fieldType}Range`][1]
+      ) { statusColor = 'danger' }
       return (
         <S.ListPageCardFieldMeter name={fieldType}>
           <S.ListPageCardFieldMeterLabel>{fieldLabel}:</S.ListPageCardFieldMeterLabel>
-          <S.ListPageCardFieldMeterValue>{listPageCardInfoProps[fieldType]}</S.ListPageCardFieldMeterValue>
+          <S.ListPageCardFieldMeterValue
+            dangerValue={(
+              listPageCardInfoProps[fieldType] < listPageCardInfoProps[`${fieldType}Range`][0]
+                || listPageCardInfoProps[fieldType] > listPageCardInfoProps[`${fieldType}Range`][1]
+            )}
+          >
+            {listPageCardInfoProps[fieldType]}
+          </S.ListPageCardFieldMeterValue>
         </S.ListPageCardFieldMeter>
       ) 
     case 'greenery': 

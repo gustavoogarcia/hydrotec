@@ -22,25 +22,25 @@ export default function CampNotebook () {
   useEffect(() => {
     setList([
       { id: 1234, dateAndTime: new Date(), greenHouse: 'Estufa Azul', status: 'Ok' },
-      { id: 2134, dateAndTime: new Date(), greenHouse: 'Estufa Azul', status: 'Pendencias' },
-      { id: 3124, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Pendencias' },
+      { id: 2134, dateAndTime: new Date(), greenHouse: 'Estufa Azul', status: 'Pendências' },
+      { id: 3124, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Pendências' },
       { id: 4212, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Ok' },
       { id: 5213, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Ok' },
-      { id: 1234, dateAndTime: new Date(), greenHouse: 'Estufa Azul',  status: 'Pendencias' },
-      { id: 2134, dateAndTime: new Date(), greenHouse: 'Estufa Azul', status: 'Pendencias' },
+      { id: 1234, dateAndTime: new Date(), greenHouse: 'Estufa Azul',  status: 'Pendências' },
+      { id: 2134, dateAndTime: new Date(), greenHouse: 'Estufa Azul', status: 'Pendências' },
       { id: 3124, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Ok' },
       { id: 4212, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Ok' },
       { id: 5213, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Ok' },
-      { id: 1234, dateAndTime: new Date(), greenHouse: 'Estufa Azul',  status: 'Pendencias' },
+      { id: 1234, dateAndTime: new Date(), greenHouse: 'Estufa Azul',  status: 'Pendências' },
       { id: 2134, dateAndTime: new Date(), greenHouse: 'Estufa Azul', status: 'Ok' },
       { id: 3124, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Ok' },
       { id: 4212, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Ok' },
       { id: 5213, dateAndTime: new Date(), greenHouse: 'Estufa Amarela',  status: 'Ok' },
-      { id: 1234, dateAndTime: new Date(), greenHouse: 'Estufa Azul',  status: 'Pendencias' },
+      { id: 1234, dateAndTime: new Date(), greenHouse: 'Estufa Azul',  status: 'Pendências' },
       { id: 2134, dateAndTime: new Date(), greenHouse: 'Estufa Azul', status: 'Ok' },
       { id: 3124, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Ok' },
-      { id: 4212, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Pendencias' },
-      { id: 5213, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Pendencias' },
+      { id: 4212, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Pendências' },
+      { id: 5213, dateAndTime: new Date(), greenHouse: 'Estufa Amarela', status: 'Pendências' },
     ])
     setTotalPages(5);
     setTotalCount(73);

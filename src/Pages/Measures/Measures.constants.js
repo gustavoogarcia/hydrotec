@@ -167,7 +167,7 @@ export const listCardGridTemplate = css`
       grid-template:
         "dateAndTime reservatory ec temperature ph action"
       ;
-      grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: auto 1fr 1fr 1fr 1fr 120px;
     }
   }
 `

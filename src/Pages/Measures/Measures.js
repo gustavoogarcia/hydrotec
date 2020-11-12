@@ -29,14 +29,38 @@ export default function Measures () {
           id: 123,
           dateAndTime: new Date(),
           reservatory: 'Amarelo',
+          ec: 450,
+          ecRange: [700, 1800],
+          temperature: 33,
+          temperatureRange: [22, 30],
+          ph: 4.3,
+          phRange: [5, 7.5],
+          action: 'Corrigido'
+        },
+        {
+          id: 123,
+          dateAndTime: new Date(),
+          reservatory: 'Azul',
           ec: 1400,
-          ecRamge: [700, 1800],
-          temperature: 25,
-          temperatureRamge: [22, 30],
-          ph: 6.3,
-          phRamge: [5, 7.5],
+          ecRange: [700, 1800],
+          temperature: 32,
+          temperatureRange: [22, 30],
+          ph: 7,
+          phRange: [5, 7.5],
+          action: 'Corrigir'
+        },
+        {
+          id: 123,
+          dateAndTime: new Date(),
+          reservatory: 'Amarelo',
+          ec: 1400,
+          ecRange: [700, 1800],
+          temperature: 26,
+          temperatureRange: [22, 30],
+          ph: 7,
+          phRange: [5, 7.5],
           action: 'OK'
-        }
+        },
       ]))
       .catch((err) => console.log(err))
   }, [])

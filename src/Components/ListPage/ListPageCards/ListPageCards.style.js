@@ -44,7 +44,6 @@ export const ListPageCardFieldActionValue = styled(Button)`
 
   &:hover {
     &:disabled {
-      background: ${({ theme: { color: { brand }}}) => brand };
       cursor: default;
     }
   }
@@ -180,7 +179,7 @@ export const ListPageCardFieldMeterLabel = styled.div`
 `
 
 export const ListPageCardFieldMeterValue = styled.p`
-  background: ${({ theme: { color: { brand }}}) => desaturate(.2, lighten(.3, brand)) };
+  background: ${({ dangerValue, theme: { color: { brand, danger }}}) => dangerValue ? desaturate(.2, lighten(.2, danger)) : desaturate(.2, lighten(.3, brand)) };
   font-size: 12px;
   width: 100%;
   padding: 8px 16px;
