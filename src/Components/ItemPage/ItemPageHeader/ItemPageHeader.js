@@ -5,7 +5,7 @@ export default function ItemPageHeader({ pageLabel: { singular }, icon: Icon, pa
 
   return (
     <S.ItemPageHeader color={pageColor}>
-      <S.ItemPageHeaderTitle color={pageColor}><Icon />{singular}</S.ItemPageHeaderTitle>
+      <S.ItemPageHeaderTitle color={pageColor}>{ Icon && <Icon />}{singular}</S.ItemPageHeaderTitle>
     </S.ItemPageHeader>
   );
 }

@@ -20,7 +20,7 @@ export default function ItemPage(ItemPageProps) {
       <ItemPageForm {...ItemPageProps} />
       {children}
       <S.ItemPageButtons>
-        <Button variation="primary" label={ id ? "Editar" : "Voltar"} rightIcon={SaveIcon} onClick={onSubmit}/>
+        <Button variation="primary" label={ id ? "Editar" : "Salvar"} rightIcon={SaveIcon} onClick={onSubmit}/>
         <Button variation="danger" label="Voltar" rightIcon={CancelIcon} onClick={() => history.goBack() } />
       </S.ItemPageButtons>
     </S.ItemPage>

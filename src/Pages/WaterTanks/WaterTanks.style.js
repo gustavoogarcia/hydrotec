@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const PlantingLots = styled.div`
+export const WaterTanks = styled.div`
   background: white;
   min-height: 100%;
 `

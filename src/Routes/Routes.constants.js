@@ -21,12 +21,12 @@ import Pest from '../Pages/Pest'
 import Group from '../Pages/Group'
 import Manufacturer from'../Pages/Manufacturer'
 import Greenhouse from '../Pages/Greenhouse'
+import WaterTanks from '../Pages/WaterTanks'
 import WaterTank from '../Pages/WaterTank'
 
 
 export const routes = [
   { path: '/solucoes-nutritivas', component: NutritiveSolutions },
-  { path: '/caixas-dagua', component: WaterTank },
   { path: '/estufas', component: Greenhouse },
   { path: '/fabricantes', component: Manufacturer},
   { path: '/pragas', component: Pest} ,
@@ -37,12 +37,15 @@ export const routes = [
   { path: '/insumos', component: Input },
   { path: '/fazendas', component: Farms },
   { path: '/planos', component: Plans },
+  { path: '/caixas-dagua/novo', component: WaterTank },
+  { path: '/caixas-dagua/:id', component: WaterTank },
+  { path: '/caixas-dagua', component: WaterTanks },
   { path: '/cadernos-de-campo/novo', component: CampNotebook },
   { path: '/cadernos-de-campo/:id', component: CampNotebook },
   { path: '/cadernos-de-campo', component: CampNotebooks },
-  { path: '/controle-de-ec-e-ph/novo', component: Measure },
-  { path: '/controle-de-ec-e-ph/:id', component: Measure },
-  { path: '/controle-de-ec-e-ph', component: Measures },
+  { path: '/controles-de-ph-&-ec/novo', component: Measure },
+  { path: '/controles-de-ph-&-ec/:id', component: Measure },
+  { path: '/controles-de-ph-&-ec', component: Measures },
   { path: '/lotes-de-plantio/novo', component: PlantingLot },
   { path: '/lotes-de-plantio/:id', component: PlantingLot },
   { path: '/lotes-de-plantio', component: PlantingLots },

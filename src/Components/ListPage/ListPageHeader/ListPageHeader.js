@@ -4,7 +4,7 @@ import Button from "../../Button";
 import * as S from './ListPageHeader.style';
 
 export default function ListPageHeader({ pageLabel: { plural, singular }, type, icon: Icon, pageColor }) {
-  const link = `/${deburr(plural).toLowerCase().replace(/\s/g, "-")}`;
+  const link = `/${deburr(plural).toLowerCase().replace(/\s/g, "-").replace("'", "")}`;
   const button = { variation: "secondary", label: `Cadastrar ${singular}`, link: `${link}/novo`, type: 'link' };
 
   return (
