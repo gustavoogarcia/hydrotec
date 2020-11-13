@@ -23,7 +23,7 @@ export default function Input () {
 
   useEffect(() => {
     const params = mapFieldsToData({fields: searchFields});
-    http.get('lote-plantio', { params })
+    http.get('insumo', { params })
       .then(({ data }) => setList(data))
       .catch((err) => console.log(err))
   }, [])

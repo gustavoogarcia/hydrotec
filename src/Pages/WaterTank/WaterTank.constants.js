@@ -12,37 +12,26 @@ export const pageLabel = {
 };
 
 export const waterTankSearchFieldsState = () => ({
-  from: { value: '' },
-  until: { value: '' },
-  greenHouse: { value: '' },
-  greenery: { value: '' },
-  stage: { value: '' },
+  name: { value: '' },
+  capacity: { value: '' },
   sortBy: { value: { label: 'Data ↓', value: 'dateDsc' } },
   limit: { value: { label: '20', value: 20 } },
 });
 
 export const waterTankSearchFields = ({ fields }) => ({
-  submitButton: { 
-    name: 'submitButton',
-    label: 'Pesquisar',
-    type: 'button',
-    variation: 'primary',
-    rightIcon: SearchIcon 
+  name:{
+    ...fields.name,
+    name: 'name',
+    label: 'Nome',
+    placeholder: 'Digite',  
   },
-  generatePDF: { 
-    name: 'generatePDF',
-    label: 'Gerar PDF',
-    type: 'button',
-    variation: 'danger',
-    rightIcon: GeneratePDFIcon ,
+  capacity: { 
+    ...fields.capacity,
+    name: 'capacity',
+    label: 'Capacidade',
+    placeholder: 'Digite',
   },
-  exportCSV: { 
-    name: 'exportCSV',
-    label: 'Exportar CSV',
-    type: 'button',
-    variation: 'warning',
-    rightIcon: exportCSVIcon 
-  },
+
   sortBy: { 
     ...fields.sortBy,
     name: 'sortBy',
@@ -66,17 +55,40 @@ export const waterTankSearchFields = ({ fields }) => ({
       { label: '100', value: 100 }, 
     ],
   },
+  submitButton: { 
+    name: 'submitButton',
+    label: 'Pesquisar',
+    type: 'button',
+    variation: 'primary',
+    rightIcon: SearchIcon 
+  },
+  generatePDF: { 
+    name: 'generatePDF',
+    label: 'Gerar PDF',
+    type: 'button',
+    variation: 'danger',
+    rightIcon: GeneratePDFIcon ,
+  },
+  exportCSV: { 
+    name: 'exportCSV',
+    label: 'Exportar CSV',
+    type: 'button',
+    variation: 'warning',
+    rightIcon: exportCSVIcon 
+  },
 });
 
 export const cardInfos = [
-  { fieldLabel: 'Nome do Plano', fieldType: 'name' },
-  { fieldLabel: 'Preço', fieldType: 'price' },
+  { fieldLabel: 'Nome', fieldType: 'name' },
+  { fieldLabel: 'Capacidade', fieldType: 'capacity' },
   { fieldLabel: '', fieldType: 'history' },
   { fieldLabel: '', fieldType: 'delete' },
 ]
 
 export const searchGridTemplate = css`
   grid-template: ${`
+    "name"
+    "capacity"
     "sortBy"
     "limit"
     "submitButton"
@@ -87,6 +99,7 @@ export const searchGridTemplate = css`
   @media screen {
     @media (min-width: ${({ theme: { screen: { screenXS } }}) => screenXS}) {
       grid-template: ${`
+        "name capacity"
         "sortBy limit"
         "submitButton submitButton" 
         "generatePDF exportCSV"
@@ -96,7 +109,7 @@ export const searchGridTemplate = css`
 
     @media (min-width: ${({ theme: { screen: { screenMD } }}) => screenMD }) {
       grid-template:
-        "sortBy sortBy sortBy sortBy sortBy sortBy limit limit limit limit . ."
+        "name name name capacity capacity capacity sortBy sortBy sortBy limit limit limit"
         "submitButton submitButton submitButton submitButton generatePDF generatePDF generatePDF generatePDF exportCSV exportCSV exportCSV exportCSV "
       ;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -104,7 +117,7 @@ export const searchGridTemplate = css`
     
     @media (min-width: ${({ theme: { screen: { screenLG } }}) => screenLG }) {
       grid-template:
-        "sortBy sortBy sortBy limit limit limit . . . . . ."
+        "name name capacity capacity sortBy sortBy sortBy limit limit limit"
         "submitButton submitButton submitButton generatePDF generatePDF generatePDF exportCSV exportCSV exportCSV . . ."
       ;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -114,10 +127,10 @@ export const searchGridTemplate = css`
 
 export const listCardGridTemplate = css`
   grid-template: 
-    "name name price price"
+    "name name capacity capacity"
     "history history delete delete"
   ;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
 
   @media screen {
     @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {

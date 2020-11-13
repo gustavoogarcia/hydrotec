@@ -23,7 +23,7 @@ export default function Group () {
 
   useEffect(() => {
     const params = mapFieldsToData({fields: searchFields});
-    http.get('lote-plantio', { params })
+    http.get('grupo', { params })
       .then(({ data }) => setList(data))
       .catch((err) => console.log(err))
   }, [])

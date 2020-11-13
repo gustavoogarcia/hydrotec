@@ -12,36 +12,30 @@ export const pageLabel = {
 };
 
 export const groupSearchFieldsState = () => ({
-  from: { value: '' },
-  until: { value: '' },
-  greenHouse: { value: '' },
-  greenery: { value: '' },
-  stage: { value: '' },
+  status: { value: '' },
+  name: { value: '' },
   sortBy: { value: { label: 'Data ↓', value: 'dateDsc' } },
   limit: { value: { label: '20', value: 20 } },
 });
 
 export const groupSearchFields = ({ fields }) => ({
-  submitButton: { 
-    name: 'submitButton',
-    label: 'Pesquisar',
-    type: 'button',
-    variation: 'primary',
-    rightIcon: SearchIcon 
+  name:{
+    ...fields.name,
+    name: 'name',
+    label: 'Nome',
+    placeholder: 'Digite',  
   },
-  generatePDF: { 
-    name: 'generatePDF',
-    label: 'Gerar PDF',
-    type: 'button',
-    variation: 'danger',
-    rightIcon: GeneratePDFIcon ,
-  },
-  exportCSV: { 
-    name: 'exportCSV',
-    label: 'Exportar CSV',
-    type: 'button',
-    variation: 'warning',
-    rightIcon: exportCSVIcon 
+  status: {
+    ...fields.status,
+    name: 'status',
+    label: 'Status',
+    type: 'select',
+    placeholder: 'Selecione',
+    options: [
+      { label: 'Ativo', value: 'active' }, 
+      { label: 'Inativo', value: 'inative' },  
+    ],
+    isClearable: true
   },
   sortBy: { 
     ...fields.sortBy,
@@ -66,17 +60,40 @@ export const groupSearchFields = ({ fields }) => ({
       { label: '100', value: 100 }, 
     ],
   },
+  submitButton: { 
+    name: 'submitButton',
+    label: 'Pesquisar',
+    type: 'button',
+    variation: 'primary',
+    rightIcon: SearchIcon 
+  },
+  generatePDF: { 
+    name: 'generatePDF',
+    label: 'Gerar PDF',
+    type: 'button',
+    variation: 'danger',
+    rightIcon: GeneratePDFIcon ,
+  },
+  exportCSV: { 
+    name: 'exportCSV',
+    label: 'Exportar CSV',
+    type: 'button',
+    variation: 'warning',
+    rightIcon: exportCSVIcon 
+  },
 });
 
 export const cardInfos = [
-  { fieldLabel: 'Nome do Plano', fieldType: 'name' },
-  { fieldLabel: 'Preço', fieldType: 'price' },
+  { fieldLabel: 'Nome', fieldType: 'name' },
+  { fieldLabel: 'Status', fieldType: 'status' },
   { fieldLabel: '', fieldType: 'history' },
   { fieldLabel: '', fieldType: 'delete' },
 ]
 
 export const searchGridTemplate = css`
   grid-template: ${`
+    "name"
+    "status"
     "sortBy"
     "limit"
     "submitButton"
@@ -87,6 +104,7 @@ export const searchGridTemplate = css`
   @media screen {
     @media (min-width: ${({ theme: { screen: { screenXS } }}) => screenXS}) {
       grid-template: ${`
+        "name status"
         "sortBy limit"
         "submitButton submitButton" 
         "generatePDF exportCSV"
@@ -96,7 +114,7 @@ export const searchGridTemplate = css`
 
     @media (min-width: ${({ theme: { screen: { screenMD } }}) => screenMD }) {
       grid-template:
-        "sortBy sortBy sortBy sortBy sortBy sortBy limit limit limit limit . ."
+        "name name name status status status sortBy sortBy sortBy limit limit limit"
         "submitButton submitButton submitButton submitButton generatePDF generatePDF generatePDF generatePDF exportCSV exportCSV exportCSV exportCSV "
       ;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -104,7 +122,7 @@ export const searchGridTemplate = css`
     
     @media (min-width: ${({ theme: { screen: { screenLG } }}) => screenLG }) {
       grid-template:
-        "sortBy sortBy sortBy limit limit limit . . . . . ."
+      "name name name status status status sortBy sortBy sortBy limit limit limit"
         "submitButton submitButton submitButton generatePDF generatePDF generatePDF exportCSV exportCSV exportCSV . . ."
       ;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -114,17 +132,18 @@ export const searchGridTemplate = css`
 
 export const listCardGridTemplate = css`
   grid-template: 
-    "name name price price"
+  "status status status status"
+  "name name name name"
     "history history delete delete"
   ;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 
   @media screen {
     @media (min-width: ${({ theme: { screen: { screenMD} }}) => screenMD}) {
       grid-template:
-        "name price history delete"
+        "status name history delete"
       ;
-      grid-template-columns: 1fr 1fr 40px 40px;
+      grid-template-columns: 80px 1fr 40px 40px;
     }
   }
 `

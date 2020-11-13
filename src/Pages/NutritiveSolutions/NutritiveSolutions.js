@@ -23,7 +23,7 @@ export default function NutritiveSolutions () {
 
   useEffect(() => {
     const params = mapFieldsToData({fields: searchFields});
-    http.get('lote-plantio', { params })
+    http.get('solucao-nutritiva', { params })
       .then(({ data }) => setList(data))
       .catch((err) => console.log(err))
   }, [])

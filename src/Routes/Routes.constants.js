@@ -15,7 +15,7 @@ import Farms from '../Pages/Farms';
 import Users from '../Pages/Users';
 import NutritiveSolutions from '../Pages/NutritiveSolutions'
 import Input from '../Pages/Input'
-import Greenery from '../Pages/Greenery'
+import Greeneries from '../Pages/Greeneries'
 import Recipe from '../Pages/Recipe'
 import Pest from '../Pages/Pest'
 import Group from '../Pages/Group'
@@ -32,7 +32,7 @@ export const routes = [
   { path: '/pragas', component: Pest} ,
   { path: '/grupos', component: Group} ,
   { path: '/receitas', component: Recipe },
-  { path: '/hortalicas', component: Greenery },
+  { path: '/hortalicas', component: Greeneries },
   { path: '/usuarios', component: Users },
   { path: '/insumos', component: Input },
   { path: '/fazendas', component: Farms },
